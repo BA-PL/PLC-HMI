@@ -2,9 +2,6 @@
 TF1800 PLC HMI Samples
 Zamieszczone projekty są jedynie przykładami i korzystanie z nich/ adaptację do swojego projektu, robią Państwo na własną odpowiedzialność.
 
-Niektóre projekty zawierają w środku folder z instukcją PDF.
-Jest ona potrzebna w przypadku, kiedy do poprawnego działana projektu wymagana jest dodatkowa konfiguracja plików w systemie.
-
 Lista projektów:
 - ActiveX_PDFSample -  przykład do obsługi plików PDF na wizualizacji 
 - CustomKeypad_with_Hotkeys - edycja domyślnej klawiatury wizualizacji wraz z obsługą klawiatury fizycznej
