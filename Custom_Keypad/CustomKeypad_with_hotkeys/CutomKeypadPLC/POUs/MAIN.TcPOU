@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="MAIN" Id="{618e2290-6191-469e-bbb1-e120615f54a4}" SpecialFunc="None">
+    <Declaration><![CDATA[(*	| author		| Beckhoff Automation Poland	|	*)
+(* 	-------------------------------------------------	*)
+(*	| wersion		| 1.0							|	*)
+(* 	-------------------------------------------------	*)
+(*	| TC version	| 3.1.4024.7					| 	*)
+(* 	-------------------------------------------------	*)
+(*	| date			| 19.05.2020					|	*)
+(* 	-------------------------------------------------	*)
+(*	| description	| custom keypad with hotkeys	|  	*)
+
+PROGRAM MAIN
+VAR
+	iTest 	: INT;
+	sTest	: STRING;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
