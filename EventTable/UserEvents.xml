@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TcEventSources>
+	<Source>
+		<Id>1</Id>
+		<Name LcId="1031">Quelle 1</Name>
+		<Name LcId="1033">Source 1</Name>
+		<Name LcId="1045">Zrodlo 1</Name>
+<!-- ALARMY -->
+		<Event>
+			<Message LcId="1031">Alarm Meldung 1</Message>
+			<Message LcId="1033">Alarm Message 1</Message>
+			<Message LcId="1045">Komunikat Alarmu 1</Message>
+			<Id>1</Id>
+			<Class>7</Class>
+			<Priority>0</Priority>
+			<ReqMustCon>0</ReqMustCon>
+		</Event>
+	</Source>
+	<Source>
+		<Id>2</Id>
+		<Name LcId="1031">Quelle 2</Name>
+		<Name LcId="1033">Source 2</Name>
+		<Name LcId="1045">Zrodlo 2</Name>
+<!-- OSTRZEZENIA -->
+		<Event>
+			<Message LcId="1031">Warnung 1</Message>
+			<Message LcId="1033">Warning 1</Message>
+			<Message LcId="1045">Ostrzezenie 1</Message>
+			<Id>1</Id>
+			<Class>6</Class>
+			<Priority>0</Priority>
+			<ReqMustCon>0</ReqMustCon>
+		</Event>
+	</Source>
+	<Source>
+		<Id>3</Id>
+		<Name LcId="1031">Quelle 3</Name>
+		<Name LcId="1033">Source 3</Name>
+		<Name LcId="1045">Zrodlo 3</Name>
+<!-- KOMUNIKATY -->
+		<Event>
+			<Message LcId="1031">Meldung 1</Message>
+			<Message LcId="1033">Message 1</Message>
+			<Message LcId="1045">Komunikat 1</Message>
+			<Id>1</Id>
+			<Class>2</Class>
+			<Priority>0</Priority>
+			<ReqMustCon>0</ReqMustCon>
+		</Event>
+	</Source>
+</TcEventSources>
