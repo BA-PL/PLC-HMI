@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.0">
+  <POU Name="RecipeManagement" Id="{6671bd1a-c0f6-4fb5-bf03-9df5d784f921}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM RecipeManagement
+VAR
+	fbRecipeManCommands 	: RecipeManCommands; (* Recipe Manager *)
+	
+	bInit 					: BOOL := TRUE;
+	
+	nLastError 				: DWORD; (* Error from Recipe Manager *)
+	nRecipeCount 			: INT;
+	
+	sRecipeDef 				: STRING := 'RecipeDefinition1'; (* current recipe definition *)
+	sRecipe 				: STRING; (*Selected recipe *)
+	nPreviousIndex			: INT; (* Previous selected index *)
+	nPreviousSelectionIndex	: INT := -1; (* *)
+	bReload 				: BOOL; (* Refresh recipes from files *)
+	fbSaveVariablesTrigger	: R_TRIG;
+	bSaveVariables			: BOOL;
+	nSelectionIndexInList 	: INT;
+	nCount					: INT;
+	bReloadValues			: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Initialization *)
+IF bInit THEN
+	(* Save the number of recipes in the specified recipe definition in a globar variable.*)
+	GVL_RecipeTable.nRecipeCount := fbRecipeManCommands.GetRecipeCount(sRecipeDef);
+	
+	(* Empty all arrays *)
+	FOR nCount := 0 TO cMaxTableRows DO
+		GVL_RecipeTable.aRecipeNames[nCount] := '';
+		GVL_RecipeTable.aVariableNames[nCount] := '';
+		GVL_RecipeTable.aVariableValues[nCount] := '';
+	END_FOR
+	
+	(* save all recipe names of the default recipe definition in an array *)
+	fbRecipeManCommands.GetRecipeNames(	sRecipeDef,
+										ADR(GVL_RecipeTable.aRecipeNames),
+										10,
+										GVL_RecipeTable.nRecipeIndex);
+										
+	GVL_RecipeTable.nRecipeSelectionIndex := -1;
+	nPreviousSelectionIndex := -1;
+	
+	bInit := FALSE;
+END_IF
+
+(* Count all recipes in the defined recipe definition *)
+nRecipeCount := fbRecipeManCommands.GetRecipeCount(sRecipeDef);
+nLastError := fbRecipeManCommands.GetLastError();
+
+(* Scroll position of the recipe list has changed. *)
+IF GVL_RecipeTable.nRecipeIndex <> nPreviousIndex THEN
+	fbRecipeManCommands.GetRecipeNames(	sRecipeDef,
+										ADR(GVL_RecipeTable.aRecipeNames),
+										10,
+										GVL_RecipeTable.nRecipeIndex);
+	nPreviousIndex := GVL_RecipeTable.nRecipeIndex;
+END_IF
+
+(* Selection of the current recipe has changed *)
+IF GVL_RecipeTable.nRecipeSelectionIndex <> nPreviousSelectionIndex OR bReloadValues THEN
+	nPreviousSelectionIndex := GVL_RecipeTable.nRecipeSelectionIndex;
+	nSelectionIndexInList := GVL_RecipeTable.nRecipeSelectionIndex - GVL_RecipeTable.nRecipeIndex;
+	
+	(* Get the selected recipe name *)
+	IF nSelectionIndexInList >= 0 AND nSelectionIndexInList < 10 THEN
+		sRecipe := GVL_RecipeTable.aRecipeNames[nSelectionIndexInList];
+	END_IF
+	
+	fbRecipeManCommands.GetRecipeValues(sRecipeDef,
+										sRecipe,
+										ADR(GVL_RecipeTable.aVariableValues),
+										10,
+										GVL_RecipeTable.nVariableIndex,
+										80);
+										
+	fbRecipeManCommands.GetRecipeVariableNames(	sRecipeDef,
+												sRecipe,
+												ADR(GVL_RecipeTable.aVariableNames),
+												10,
+												GVL_RecipeTable.nVariableIndex);
+	
+	bReloadValues := FALSE;
+END_IF
+
+(* Reload the recipe list from the file system *)
+IF bReload THEN
+	fbRecipeManCommands.ReloadRecipes(sRecipeDef);
+	bInit := TRUE;
+	bReload := FALSE;
+END_IF
+
+(* Save the edited values into the recipe *)
+fbSaveVariablesTrigger(CLK := bSaveVariables);
+IF fbSaveVariablesTrigger.Q THEN
+	fbRecipeManCommands.SetRecipeValues(sRecipeDef,
+										sRecipe,
+										ADR(GVL_RecipeTable.aVariableValues),
+										10,
+										GVL_RecipeTable.nVariableIndex);	
+	bSaveVariables := FALSE;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="RecipeManagement">
+      <LineId Id="21" Count="3" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="25" Count="5" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="31" Count="1" />
+      <LineId Id="100" Count="2" />
+      <LineId Id="151" Count="3" />
+      <LineId Id="33" Count="5" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="39" Count="2" />
+      <LineId Id="84" Count="2" />
+      <LineId Id="42" Count="6" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="49" Count="3" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="87" Count="4" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="92" Count="3" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="55" Count="10" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="66" Count="1" />
+      <LineId Id="96" Count="3" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
