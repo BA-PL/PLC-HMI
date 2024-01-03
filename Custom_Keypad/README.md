@@ -1,27 +1,37 @@
 # Instrukcja
 
-PopUp (okienko dialogowe) – istnieje możliwość, aby dany ekran wizualizacji pełnił rolę okienka popup (ze zmiennymi parametrami) oraz możliwością reakcji na sposób jego zamknięcia (OK lub Cancel). 
+Poniższy  przykład  pokazuje,  jak  edytować  domyślne  elementy  z  biblioteki  VisuDialogs  –  w  tym konkretnym przypadku domyślne klawiatury. 
 
-W przykładzie stworzono ekran Dialog Test z parametrem sText (wyświetlany na środku okienka).
+W  pierwszym  kroku,  należy  w  bibliotece  VisuDialogs  (powinna  się  ona  dodać  przy  tworzeniu wizualizacja, bądź można ją dodać do projektu ręcznie) odnaleźć elementy np. Keypad lub Numpad:
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/521a825a-cfe8-4c63-9d6e-8371d715ffa1)
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/4bd60dfe-8b5b-4820-a143-346633f6a80d)
 
-Dla tego ekranu, w jego właściwościach, należy ustawić opcję Use visualization as Dialog:
+Element można dwuklikiem otworzyć, a następnie zaznaczyć wszystkie elementy (grafikę) i skopiować do swojego, wcześniej przygotowanego ekranu wizualizacji. To samo należy zrobić ze zmiennymi przypisanymi do tego elementu:
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/d1b6892f-1221-4bb8-ac52-bc45404e69b5)
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/342cfc05-6466-4d5b-8770-462c950c3d27)
 
-Nazwa  ekranu  zawierającego  Popup  powinna  znaleźć  się  w  funkcjach  CloseMessageDialog  oraz OpenMessageDialog w kodzie PLC:
+W przykładzie jest to ekran wizualizacji CustomKeypad, do którego elementy zostały skopiowane:
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/50742e13-2ae1-4b18-941f-334431005284)
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/3f46ed2a-94cf-4c6c-b5ee-28e1752eb062)
 
-W przykładzie otwarcie dialogu odbywa się zmienną bOpen w programie P_Dialog, zmienna sMessage jest wyświetlanym parametrem.
+Po  skopiowaniu,  można  dowolnie  (pod  kątem  graficznym)  edytować  element.  W  opisywanym przykładzie jako  dodatkowa  opcja,  skonfigurowano Hotkeys  – pozwala  to  wprowadzać  znaki jednocześnie za pomocą klawiatury ekranowej wizualizacji jak i klawiatury fizycznej podłączonej do urządzenia.
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/8fe7cdc0-c2c3-4c3f-a993-c667d713101e)
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/a216557b-1281-44e3-a8f0-c34b043dfa33)
 
-W dalszej części kodu można dopisać reakcję na konkretny sposób zamknięcia okienka:
+Aby korzystać z wyedytowanych klawiatur, należy wykonać te kroki:
+- we właściwościach ekranu, który zawiera klawiaturę, należy ustawić właściwość Use visualization as na NumKeypad:
+ 
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/5053051c-c47c-4a7f-af41-950ca7a70072)
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/4b7b8086-08cf-4c32-912c-6ade89f97ff4)
+- następnie należy zapisać i przebudować projekt
+-  następnie w VisualizationManagerze
+  ![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/eb01ed20-b02d-4885-814c-507183636900)
 
-Pod przycisku na wizualizacji należy podpiąć odpowiednie akcje:
+W zakładce Dialog settings dokonujemy odpowiednich ustawień dla elementu Keypad
 
-![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/0b512733-024d-4774-b9c1-423aa678a127)
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/740343e3-1d5c-4758-bd23-7b123cf6ed9c)
+
+Następnie zapisujemy, przebudowujemy i wgrywamy projekt. Od tej pory jako metoda wprowadzania znaków na wizualizacji, powinna pojawiać się nasza edytowana klawiatura. 
+UWAGA! Należy zwrócić uwagę na wybraną metodę nadpisywania zmiennej z poziomu wizualizacji. Klawiatura Custom będzie działać przy wybranej opcji Default, lub przy konkretnym wskazaniu tej klawiatury. 
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/43db2f0c-edba-4601-97c5-0237dac47bb8)
