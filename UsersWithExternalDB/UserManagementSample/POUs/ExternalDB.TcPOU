@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.2">
+  <POU Name="ExternalDB" Id="{dc422762-ed33-4d3b-a535-a6ff06e5d70d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ExternalDB IMPLEMENTS IExternalUserDatabaseProvider
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	_users : ARRAY[0..MAX_USERS] OF VUM_User;
+	_iUserCount : INT := 0;
+	_bInit : BOOL := TRUE;
+END_VAR
+VAR CONSTANT
+	MAX_USERS : INT := 30;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF _bInit THEN
+	_users[0].wstUserName := "a";
+	_users[0].wstPassword := "a";
+	_users[0].wstFullName := "DemoA";
+	_users[0].dwUserGroupID := 1;
+	_users[0].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[1].wstUserName := "b";
+	_users[1].wstPassword := "b";
+	_users[1].wstFullName := "DemoB";
+	_users[1].dwUserGroupID := 2;
+	_users[1].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[2].wstUserName := "c";
+	_users[2].wstPassword := "c";
+	_users[2].wstFullName := "DemoC";
+	_users[2].dwUserGroupID := 2;
+	_users[2].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[3].wstUserName := "d";
+	_users[3].wstPassword := "d";
+	_users[3].wstFullName := "DemoD";
+	_users[3].dwUserGroupID := 2;
+	_users[3].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[4].wstUserName := "e";
+	_users[4].wstPassword := "e";
+	_users[4].wstFullName := "DemoE";
+	_users[4].dwUserGroupID := 2;
+	_users[4].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[5].wstUserName := "f";
+	_users[5].wstPassword := "f";
+	_users[5].wstFullName := "DemoF";
+	_users[5].dwUserGroupID := 2;
+	_users[5].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[6].wstUserName := "g";
+	_users[6].wstPassword := "g";
+	_users[6].wstFullName := "DemoG";
+	_users[6].dwUserGroupID := 1;
+	_users[6].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[7].wstUserName := "h";
+	_users[7].wstPassword := "h";
+	_users[7].wstFullName := "DemoH";
+	_users[7].dwUserGroupID := 1;
+	_users[7].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[8].wstUserName := "i";
+	_users[8].wstPassword := "i";
+	_users[8].wstFullName := "DemoI";
+	_users[8].dwUserGroupID := 2;
+	_users[8].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[9].wstUserName := "j";
+	_users[9].wstPassword := "j";
+	_users[9].wstFullName := "DemoJ";
+	_users[9].dwUserGroupID := 2;
+	_users[9].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[10].wstUserName := "k";
+	_users[10].wstPassword := "k";
+	_users[10].wstFullName := "DemoK";
+	_users[10].dwUserGroupID := 2;
+	_users[10].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_users[11].wstUserName := "l";
+	_users[11].wstPassword := "l";
+	_users[11].wstFullName := "DemoL";
+	_users[11].dwUserGroupID := 2;
+	_users[11].bDeactivated := TRUE;
+	_iUserCount := _iUserCount+1;
+	
+	_bInit := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="ChangeUser" Id="{69ed73b0-f25b-49c7-8478-ea50fa6cbc0f}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' Changes on a user database. The edit type can be:
+ VUM_MODIFY, VUM_ADD, VUM_REMOVE AND VUM_INSERT
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.'}
+(* Changes on a user database. The edit type can be:
+ VUM_MODIFY, VUM_ADD, VUM_REMOVE AND VUM_INSERT
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.*)
+METHOD ChangeUser : VisuUserManagement_Interfaces.VUM_ReturnValues
+VAR_INPUT
+	(* The new user data*)
+	{attribute '''DOCU__COMMENT' := ' The new user data'}
+	pvumUser	: POINTER TO VisuUserManagement_Interfaces.VUM_User;
+	(* The index of this edit operation*)
+	{attribute '''DOCU__COMMENT' := ' The index of this edit operation'}
+	udiIndex	: UDINT;
+	(* The type of this edit operation*)
+	{attribute '''DOCU__COMMENT' := ' The type of this edit operation'}
+	eEditType	: VisuUserManagement_Interfaces.VUM_EditType;
+END_VAR
+VAR 
+	iIndex : UDINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF udiIndex >= MAX_USERS THEN
+	ChangeUser := VUM_ReturnValues.ERR_FAILED;
+	RETURN;
+END_IF
+
+IF eEditType = VUM_EditType.VUM_MODIFY THEN
+	_users[udiIndex] := pvumUser^;
+END_IF
+
+IF eEditType = VUM_EditType.VUM_ADD AND udiIndex = _iUserCount THEN
+	_users[udiIndex] := pvumUser^;
+	_iUserCount := _iUserCount + 1;
+END_IF
+
+IF eEditType = VUM_EditType.VUM_REMOVE THEN
+	FOR iIndex := udiIndex TO _iUserCount-1 DO
+		_users[iIndex] := _users[iIndex+1];
+	END_FOR
+	_iUserCount := _iUserCount - 1;
+END_IF
+
+IF eEditType = VUM_EditType.VUM_INSERT THEN
+	FOR iIndex := _iUserCount TO udiIndex BY -1 DO
+		_users[iIndex] := _users[iIndex-1];
+	END_FOR
+	_users[udiIndex] := pvumUser^;
+	_iUserCount := _iUserCount + 1;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ChangeUserPassword" Id="{baec6c02-5a22-401e-8b7a-359493fb2d29}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' Changes the password of a given user. 
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.'}
+(* Changes the password of a given user. 
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.*)
+METHOD ChangeUserPassword : VisuUserManagement_Interfaces.VUM_ReturnValues
+VAR_INPUT
+	(* the user name*)
+	{attribute '''DOCU__COMMENT' := ' the user name'}
+	wstUserName	: WSTRING;
+	(* the new password of the user*)
+	{attribute '''DOCU__COMMENT' := ' the new password of the user'}
+	wstNewPassword	: WSTRING;
+	(* the old password of the user*)
+	{attribute '''DOCU__COMMENT' := ' the old password of the user'}
+	wstOldPassword	: WSTRING;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// The old password can be used for an additional check. In our implementation we know that the old password
+// is automatically checked before be the framework.
+ChangeUserPassword := VUM_ReturnValues.ERR_OK;
+
+IF wstUserName = _users[0].wstUserName THEN
+	_users[0].wstPassword := wstNewPassword;
+ELSIF wstUserName = _users[1].wstUserName THEN
+	_users[1].wstPassword := wstNewPassword;
+ELSE
+	ChangeUserPassword := VUM_ReturnValues.ERR_VUM_USER_DOES_NOT_EXIST;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="CheckLogin" Id="{ae1ecaeb-246c-4a47-a7f1-5a8aa9bc53e4}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' Checks whether the user name and password is correct. 
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.'}
+(* Checks whether the user name and password is correct. 
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.*)
+METHOD CheckLogin : VisuUserManagement_Interfaces.VUM_ReturnValues
+VAR_INPUT
+	(* the user name*)
+	{attribute '''DOCU__COMMENT' := ' the user name'}
+	wstUserName	: WSTRING;
+	(* the password of the user*)
+	{attribute '''DOCU__COMMENT' := ' the password of the user'}
+	wstPassword	: WSTRING;
+END_VAR
+VAR_OUTPUT
+	(* the full name of the user*)
+	{attribute '''DOCU__COMMENT' := ' the full name of the user'}
+	wstFullName	: WSTRING;
+	(* the group id where the user belongs to*)
+	{attribute '''DOCU__COMMENT' := ' the group id where the user belongs to'}
+	dwUserGroupID	: DWORD;
+END_VAR
+VAR
+	i: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CheckLogin := VUM_ReturnValues.ERR_OK;
+wstFullName := "";
+dwUserGroupID := 16#FFFFFFFF;
+
+FOR i := 0 TO MAX_USERS DO 
+	IF wstUserName = _users[i].wstUserName  THEN
+		IF wstPassword = _users[i].wstPassword THEN
+			wstFullName := _users[i].wstFullName;
+			dwUserGroupID := _users[i].dwUserGroupID;
+		ELSE
+			CheckLogin := VUM_ReturnValues.ERR_VUM_WRONG_PASSWORD;
+		END_IF
+
+		RETURN;
+	END_IF
+END_FOR
+
+CheckLogin := VUM_ReturnValues.ERR_VUM_USER_DOES_NOT_EXIST;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="CheckLoginWithGroupID" Id="{be2fa3b5-114c-478f-97ac-173b9bde2090}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' This method checks whether the user is in the database, the password is correct and the user belongs to the user group.
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.'}
+(* This method checks whether the user is in the database, the password is correct and the user belongs to the user group.
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.*)
+METHOD CheckLoginWithGroupID : VisuUserManagement_Interfaces.VUM_ReturnValues
+VAR_INPUT
+	(* the user name*)
+	{attribute '''DOCU__COMMENT' := ' the user name'}
+	wstUserName	: WSTRING;
+	(* the password of the user*)
+	{attribute '''DOCU__COMMENT' := ' the password of the user'}
+	wstPassword	: WSTRING;
+	(* the user group id to which the user must belong to*)
+	{attribute '''DOCU__COMMENT' := ' the user group id to which the user must belong to'}
+	dwUserGroupID	: DWORD;
+END_VAR
+VAR_OUTPUT
+	(* the full name of the user*)
+	{attribute '''DOCU__COMMENT' := ' the full name of the user'}
+	wstFullName	: WSTRING;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetUserCount" Id="{911681fe-b554-41eb-a056-78bc6c57fe20}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' Returns the number of all available users.'}
+(* Returns the number of all available users.*)
+METHOD GetUserCount : UDINT
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GetUserCount := _iUserCount;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetUsers" Id="{e85e9945-f92e-4c31-8397-37a4e2cdbf60}">
+      <Declaration><![CDATA[{attribute '''DOCU__COMMENT' := ' Returns the users in a specified range
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.'}
+(* Returns the users in a specified range
+ If everything is correct the function returns VUM_ReturnValues.ERR_OK.
+ see :ref:`VUM_ReturnValues` where possible error reasons are described.*)
+METHOD GetUsers : VisuUserManagement_Interfaces.VUM_ReturnValues
+VAR_INPUT
+	(* The start index in a list of users*)
+	{attribute '''DOCU__COMMENT' := ' The start index in a list of users'}
+	udiStartIndex	: UDINT;
+	(* The end index in a list of users*)
+	{attribute '''DOCU__COMMENT' := ' The end index in a list of users'}
+	udiEndIndex	: UDINT;
+	(* The user data which should be filled *)
+	{attribute '''DOCU__COMMENT' := ' The user data which should be filled '}
+	pArr	: POINTER TO ARRAY [0..0] OF VisuUserManagement_Interfaces.VUM_User;
+	(* The size of the given user array*)
+	{attribute '''DOCU__COMMENT' := ' The size of the given user array'}
+	udiArrSize	: UDINT;
+END_VAR
+VAR
+	iIndex : UDINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[iIndex := 0;
+FOR iIndex := 0 TO udiEndIndex - udiStartIndex DO
+	IF udiStartIndex+iIndex < MAX_USERS THEN
+		pArr^[iIndex].wstUserName := _users[udiStartIndex+iIndex].wstUserName;
+		pArr^[iIndex].wstFullName := _users[udiStartIndex+iIndex].wstFullName;
+		pArr^[iIndex].wstPassword := _users[udiStartIndex+iIndex].wstPassword;
+		pArr^[iIndex].dwUserGroupID := _users[udiStartIndex+iIndex].dwUserGroupID;
+		pArr^[iIndex].bDeactivated := _users[udiStartIndex+iIndex].bDeactivated;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
