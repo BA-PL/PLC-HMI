@@ -1,28 +1,24 @@
-# PLC-HMI
-TF1800 PLC HMI Samples
-Zamieszczone projekty są jedynie przykładami i korzystanie z nich/ adaptację do swojego projektu, robią Państwo na własną odpowiedzialność.
+# Instrukcja
 
-Lista projektów:
-- ActiveX_PDFSample -  przykład do obsługi plików PDF na wizualizacji 
-- CustomKeypad_with_Hotkeys - edycja domyślnej klawiatury wizualizacji wraz z obsługą klawiatury fizycznej
-- Dialog - przykład z obsługą własnego okienka dialogowego (popup)
-- EtherCATTopology - przykład z instrukcją, do wyświetlania topologii sieci EtherCAT na wizualizacji
-- EventsHistoricalSimple - własna obsługa zdarzeń z historią w formie danych PERSISTENT 
-- EventTable - przykład obsługi wbudowanej tabeli zdarzeń (tylko aktywne alarmy)
-- HMISample - przykładowy szablon wizualizacji z nawigacją i najczęściej używanymi elementami wizualizacji
-		(m.in Histogram jako wykres, FileOpenSave dialog, użytkownicy, zmiana języka)
-- RecipeManagementSample - przykład obsługi receptur zaówno z poziomu kodu PLC jak i wizualizacji
-- UserMangExt - przykład zwierający dodatkowe funckcje dla użytkowników wizualizacji
-		(m.in logwanie z poziomu kodu PLC, własne okienko logowania)
-- UsersWithExternalDB - obsługa użytkowników z zewnętrzną bazą danych
+Przykład  pokazuje  obsługę  kontrolki  ActiveX  –  w  tym  przypadku  do  obsługi  plików  PDF.  Kroki konfiguracji:
 
-Dodatkowo:
-- TC3_PLC_HMI_BASE  - instrukcja "pierwsze kroki" z wizualiacją PLC HMI
-- Short_WebVisu_url - instrukcja jak skrócić adres wizualizacji webowej
+- wstawiamy z Toolbox kontrolkę ActiveX
 
-Przydatne linki:
-- dostępność elementów wizualizacji na danej platformie: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/9007202779117963.html
-- formatowanie tekstu: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/3524724747.html
-- warianty wizualizacji: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/36028800543330187.html
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/9ffcf71a-841b-4718-8881-af08c4c9defc)
 
-Oficjalne informacje : https://infosys.beckhoff.com
+- we właściwościach kontrolki ustawiamy właściwość Control na AcroPDF.PDF.1
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/254beb71-b533-4789-aa0d-54e156c7ac91)
+
+UWAGA! Na urządzeniu, na którym będzie uruchamiana wizualizacja z obsługą PDF, w systemie musi być zainstalowana aplikacja do obsługi takich plików. 
+
+Następnie konfigurujemy wywołanie warunkowe, używając metody LoadFile:
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/05823c62-801b-4e6e-9b32-c5c53b06daf9)
+
+W parametrze Call Condition należy podpiąć zmienną typu BOOL, która będzie wywoływać metodę, a jako kolejny parametr zmienną, która będzie przechowywać ścieżkę do pliku wraz z jego nazwą i rozszerzeniem, np.:
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/0bafd7c4-5144-4636-afb9-8089db3ddcf2)
+
+
+
