@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <GVL Name="GVL_EHSP" Id="{7b42e079-7bfd-4d59-811a-19d7abc08160}">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+	arrEvent								: ARRAY [1..GVL_EHS.diNoOfEvents] OF ST_EventHistoricalSimplePersistent;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

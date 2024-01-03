@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="MAIN" Id="{f4454d12-77f9-4a4f-9a67-d98ee49ff4c1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	tonWritePersistent						: TON;
+	fbPersistent 							: FB_WritePersistentData;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[tonWritePersistent(IN:= NOT tonWritePersistent.Q, PT:= T#1M, Q=> , ET=> );		// Zapis persistentow
+fbPersistent(PORT:= 851, START:= tonWritePersistent.Q);							// Zapis persistentow
+P_EventsHS();]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="38" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

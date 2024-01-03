@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_EventsSimple" Id="{7502f7c3-7351-4cdd-be74-864c264faf1c}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									5.2.2016
+//		Program sluzy do przesylania globalnych tablic alarmow, ostrzezen i komunikatow do Event Loggera
+//  v1.3	|| TC v 3.1.4020.28		|| - poprawki w MESSAGE, dodatkowe komentarze
+//  v1.3	|| TC v 3.1.4020.28		|| - kosmetyka
+//  v1.2	|| TC v 3.1.4020.28		|| - dodanie MESSAGE
+//  v1.1 	|| TC v 3.1.4020.14 	|| - dodanie wersjonowania, komentarzy
+// 	v1.0 	|| TC v 3.1.4020.0 		|| - pierwsza wersja
+//==================================================================================================
+PROGRAM P_EventsSimple
+VAR
+	fbAlarms				: FB_SimpleEventLog;								// Logowanie alarmow
+	fbWarnings				: FB_SimpleEventLog;								// Logowanie ostrzezen
+	fbMessage				: FB_SimpleEventLog;								// Logowanie komunikatow
+	fbRead1					: FB_AdsReadEvents;									// Odczyt tablicy jezyk polski
+	fbRead2					: FB_AdsReadEvents;									// Odczyt tablicy jezyk angielski
+	fbRead3					: FB_AdsReadEvents;									// Odczyt tablicy jezyk niemiecki
+	fbClear					: ADSCLEAREVENTS;									// Czyszczenie aktywnych alarmow
+	MSG_ALARM_ListQuit		: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;		// Tablica nieuzywana - wymaga potwierdzenia przy usuwaniu
+	MSG_MESSAGE_ListQuit	: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;		// Tablica nieuzywana - wymaga potwierdzenia przy usuwaniu
+	MSG_WARNING_ListQuit	: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;		// Tablica nieuzywana - wymaga potwierdzenia przy usuwaniu
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	TCEVENTCLASS_NONE			:=0,	No class
+	TCEVENTCLASS_MAINTENANCE	:=1,	Maintenance hint
+	TCEVENTCLASS_MESSAGE		:=2,	Message
+	TCEVENTCLASS_HINT			:=3,	Hint
+	TCEVENTCLASS_STATEINFO		:=4,	State information
+	TCEVENTCLASS_INSTRUCTION	:=5,	Instruction
+	TCEVENTCLASS_WARNING		:=6,	Warning
+	TCEVENTCLASS_ALARM			:=7,	Alarm
+	TCEVENTCLASS_PARAMERROR		:=8	 	Parameter error
+*)
+A_Active();
+fbClear(	bClear			:= TRUE,
+			iMode			:= TCEVENTLOGIOFFS_CLEARALL);
+
+fbAlarms(	Init			:= TRUE,
+			SourceId		:= 1,
+			Class			:= TCEVENTCLASS_ALARM,
+			QuitRequired	:= FALSE,
+			adrAlarmArray	:= ADR(MSG_ALARM_List),
+			adrQuitArray	:= ADR(MSG_ALARM_ListQuit));
+	
+fbWarnings(	Init			:= TRUE,
+			SourceId		:= 2,
+			Class			:= TCEVENTCLASS_WARNING,
+			QuitRequired	:= FALSE,
+			adrAlarmArray	:= ADR(MSG_WARNING_List),
+			adrQuitArray	:= ADR(MSG_WARNING_ListQuit));
+
+fbMessage(	Init			:= TRUE,
+			SourceId		:= 3,
+			Class			:= TCEVENTCLASS_MESSAGE,
+			QuitRequired	:= FALSE,
+			adrAlarmArray	:= ADR(MSG_MESSAGE_List),
+			adrQuitArray	:= ADR(MSG_MESSAGE_ListQuit));
+			
+// Odczyt w kilku jezykach
+fbRead1(	bReadEvents		:= TRUE,
+			nLanguageId		:= 1045,
+			tRefreshTime	:= T#1S);
+
+fbRead2(	bReadEvents		:= TRUE,
+			nLanguageId		:= 1033,
+			tRefreshTime	:= T#1S);
+
+fbRead3(	bReadEvents		:= TRUE, 
+			nLanguageId		:= 1031, 
+			tRefreshTime	:= T#1S);
+			
+// Wybor aktualnego jezyka wyswietlania - przepisanie do tablicy odpowiedniej tablicy
+// Uwaga j. polski bez polskich znakow
+IF VisuElemsWinControls.CURRENTLANGUAGE		= 'en' THEN
+	aEventsSimple			:= fbRead2.aEvents;
+ELSIF VisuElemsWinControls.CURRENTLANGUAGE	= 'de' THEN
+	aEventsSimple			:= fbRead3.aEvents;
+ELSE
+	aEventsSimple			:= fbRead1.aEvents;	
+END_IF;]]></ST>
+    </Implementation>
+    <Action Name="A_Active" Id="{58897fb2-dbda-4018-85e1-fecf0dfc51da}">
+      <Implementation>
+        <ST><![CDATA[GVL_EventsSimple.MSG_ALARM_List[1]:=GVL_EventsSimple.bAlarm;
+GVL_EventsSimple.MSG_WARNING_List[1]:=GVL_EventsSimple.bWarning;
+GVL_EventsSimple.MSG_MESSAGE_List[1]:=GVL_EventsSimple.bMessage;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="P_EventsSimple">
+      <LineId Id="3" Count="10" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="14" Count="7" />
+      <LineId Id="73" Count="6" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="80" Count="4" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="28" Count="11" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="40" Count="8" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="P_EventsSimple.A_Active">
+      <LineId Id="1" Count="2" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

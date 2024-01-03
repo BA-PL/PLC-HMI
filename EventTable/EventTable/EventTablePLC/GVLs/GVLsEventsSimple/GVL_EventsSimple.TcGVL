@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <GVL Name="GVL_EventsSimple" Id="{5cd9baef-bbe8-4767-8636-86aa5675a56e}">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									22.12.2016
+//  v1.3	|| TC v 3.1.4020.28		|| - FIRST_MESSAGE i LAST_MESSAGE zmian typu z UDINT na DINT - znikaja ostrzezenia
+//  v1.2	|| TC v 3.1.4020.28		|| - zmiana nazwy zakładki globalnych, zmiana nazwy zmiennej aAlarms na aEventsSimple
+//  v1.1	|| TC v 3.1.4020.28		|| - dodanie wersjonowania: dodanie MSG_MESSAGE_List
+// 	v1.0	|| TC v 3.1.4020.0		|| - pierwsza wersja
+//==================================================================================================
+VAR_GLOBAL CONSTANT
+	FIRST_MESSAGE			: DINT := 1;
+	LAST_MESSAGE			: DINT := 1200;
+END_VAR
+VAR_GLOBAL
+	// Tablice alarmow, komunikatow i ostrzezen.
+	MSG_ALARM_List			: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;
+	MSG_WARNING_List		: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;
+	MSG_MESSAGE_List		: ARRAY[FIRST_MESSAGE..LAST_MESSAGE] OF BOOL;
+	aEventsSimple			: ARRAY[1..80] OF ST_ReadEvent;					// Tablica odczytywana przez obiekt wizualizacji Event table
+	bAlarm					: BOOL;
+	bWarning				: BOOL;
+	bMessage				: BOOl;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

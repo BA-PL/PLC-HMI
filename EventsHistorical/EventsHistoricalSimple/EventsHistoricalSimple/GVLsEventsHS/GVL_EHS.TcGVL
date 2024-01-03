@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <GVL Name="GVL_EHS" Id="{488a5fd0-e718-4eef-a069-98ea190ec369}">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+{attribute 'qualified_only'}
+VAR_GLOBAL CONSTANT
+	diEventsDefinition						: DINT 	:= 50;				// Rozmiar tablicy definicji zdarzen, powinna byc w zakresie 5..1000
+	diNoOfEvents							: DINT 	:= 100;				// Rozmiar tablicy zdarzen historycznych, powinna byc w zakresie 5..1000
+END_VAR
+VAR_GLOBAL
+	stActTime								: TIMESTRUCT;				// Aktualny czas sytemowy w formie struktury
+	dtActTime								: DT;						// Aktualny czas sytemowy
+	arrEventDefinition 						: ARRAY [1..GVL_EHS.diEventsDefinition] OF ST_EventDefinition;
+	arrEventVisu							: ARRAY [1..GVL_EHS.diNoOfEvents] OF ST_EventHistoricalSimple;		// Pokazywane na wizualizacji - po filtracji
+	dwLanguageId							: DWORD := 1033;			// Kod jezyka wyswietlania - Microsoft Locale ID Values
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

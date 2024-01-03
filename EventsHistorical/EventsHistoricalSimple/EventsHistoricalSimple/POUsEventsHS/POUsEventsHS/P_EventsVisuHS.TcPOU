@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_EventsVisuHS" Id="{a09ad765-18f7-4e53-abc6-2a06babf9a29}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+//	Program obslugujacy wizualizacje VISU_EventsHistoricalSimple
+//	Mozliwe filtrowanie alamow. Czestotliwosc odswiezania wplywa tylko na wyswietlanie
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+PROGRAM P_EventsVisuHS
+VAR
+	i										: DINT;				// Iterator tablicy przechowywanej w pamieci
+	j										: DINT;				// Iterator tablicy wyswietlanej
+	bActiveWindow							: BOOL := TRUE;		// Flaga wysietlania okna - tylko wtedy odswiezamy tablice wyswietlana
+	rtPageChange							: R_TRIG;			// Wykrycie przelaczenia strony
+	tonRefresh								: TON;
+	tRefreshTime							: TIME := T#50MS;	// Czestotliwosc odswiezania strony
+	//========================= Filtry =========================
+	bRemoveFromList							: BOOL; 			// Flaga pomocnicza dla filtrow - decyduje czy element ma byc dodany na wizualizacje
+	// Flagi wykonywalnosci
+	bFilterID								: BOOL;
+	bFilterClass							: BOOL;
+	bFilterBeginTimeFrom					: BOOL;
+	bFilterBeginTimeTo						: BOOL;
+	bFilterEndTimeFrom						: BOOL;
+	bFilterEndTimeTo						: BOOL;
+	bFilterActiveOnly						: BOOL;
+	// Parametry
+	dwFilterID								: DWORD;	
+	dwFilterClass							: DWORD;
+	dtFilterBeginTimeFrom					: DT;
+	dtFilterBeginTimeTo						: DT;
+	dtFilterEndTimeFrom						: DT;
+	dtFilterEndTimeTo						: DT;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bActiveWindow := VisuElems.CURRENTVISU = 'VISU_EventsHistoricalSimple';						// Flaga wysietlania okna
+rtPageChange(CLK:= bActiveWindow, Q=> );													// Wykrycie zmiany strony - jednorazowo inicjalizacja
+tonRefresh(IN:= bActiveWindow AND NOT tonRefresh.Q, PT:= tRefreshTime, Q=> , ET=> );		// Timer odswiezania
+
+IF  rtPageChange.Q OR tonRefresh.Q THEN
+	// Czyszczenie tablicy
+	MEMSET(ADR(GVL_EHS.arrEventVisu),0,SIZEOF(GVL_EHS.arrEventVisu));
+	j := 1;
+	// Filters
+	FOR i := 1 TO GVL_EHS.diNoOfEvents DO
+		bRemoveFromList 								:= FALSE;
+		// Jesli jest element
+		IF GVL_EHSP.arrEvent[i].dwID <> 0 THEN
+			bRemoveFromList								:= bFilterID AND dwFilterID <> GVL_EHSP.arrEvent[i].dwID;
+			bRemoveFromList								:= bRemoveFromList OR (bFilterClass AND dwFilterClass <> GVL_EHSP.arrEvent[i].dwClass);
+			bRemoveFromList								:= bRemoveFromList OR (bFilterBeginTimeFrom AND GVL_EHSP.arrEvent[i].dtDateBegin <= dtFilterBeginTimeFrom);
+			bRemoveFromList								:= bRemoveFromList OR (bFilterBeginTimeTo AND GVL_EHSP.arrEvent[i].dtDateBegin >= dtFilterBeginTimeTo);
+			bRemoveFromList								:= bRemoveFromList OR (bFilterEndTimeFrom AND GVL_EHSP.arrEvent[i].dtDateEnd <= dtFilterEndTimeFrom);
+			bRemoveFromList								:= bRemoveFromList OR (bFilterEndTimeTo AND GVL_EHSP.arrEvent[i].dtDateEnd >= dtFilterEndTimeTo);
+			bRemoveFromList								:= bRemoveFromList OR (bFilterActiveOnly AND DT#1970-1-1-0:0:0 <> GVL_EHSP.arrEvent[i].dtDateEnd);
+			// Analogicznie dodajemy inne filtry jesli jest taka potrzeba
+			// Jesli element nie zostal usuniety przez filtr to dodajemy go do tablicy alarmow wyswietlanych
+			IF NOT bRemoveFromList THEN
+				GVL_EHS.arrEventVisu[j].dwID 			:= GVL_EHSP.arrEvent[i].dwID;
+				GVL_EHS.arrEventVisu[j].dwClass 		:= GVL_EHSP.arrEvent[i].dwClass;
+				GVL_EHS.arrEventVisu[j].wsMessage		:= GVL_EHS.arrEventDefinition[GVL_EHSP.arrEvent[i].dwID].wsMessage;
+				GVL_EHS.arrEventVisu[j].dwParam 		:= GVL_EHSP.arrEvent[i].dwParam;
+				GVL_EHS.arrEventVisu[j].dtDateBegin 	:= GVL_EHSP.arrEvent[i].dtDateBegin;
+				GVL_EHS.arrEventVisu[j].dtDateEnd 		:= GVL_EHSP.arrEvent[i].dtDateEnd;
+				IF GVL_EHS.arrEventVisu[j].dwClass=0 THEN
+					GVL_EHS.arrEventVisu[j].dwColor:=16#FFDE6666;
+				ELSIF GVL_EHS.arrEventVisu[j].dwClass=1 THEN
+					GVL_EHS.arrEventVisu[j].dwColor:=16#FFF2F063;
+				ELSIF GVL_EHS.arrEventVisu[j].dwClass=2 THEN
+					GVL_EHS.arrEventVisu[j].dwColor:=16#FF6AD8EE;
+				END_IF
+				j := j + 1;
+			END_IF
+		END_IF
+	END_FOR
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="P_EventsVisuHS">
+      <LineId Id="192" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="167" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="108" Count="1" />
+      <LineId Id="124" Count="6" />
+      <LineId Id="158" Count="3" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="207" Count="0" />
+      <LineId Id="134" Count="7" />
+      <LineId Id="249" Count="5" />
+      <LineId Id="243" Count="0" />
+      <LineId Id="142" Count="3" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
