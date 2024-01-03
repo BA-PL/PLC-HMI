@@ -1,0 +1,5 @@
+;-------------------------------------------------------------------------------
+; PLC WEB Visu addres to short
+;-------------------------------------------------------------------------------
+[HKEY_LOCAL_MACHINE\COMM\HTTPD\VROOTS\/]
+    "Default"     ="\Hard Disk\TwinCAT\3.1\Boot\PLC\Port_851\Visu"
