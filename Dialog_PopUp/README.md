@@ -1,1 +1,1 @@
-# Diagnostic Functions
+# Instrukcja
