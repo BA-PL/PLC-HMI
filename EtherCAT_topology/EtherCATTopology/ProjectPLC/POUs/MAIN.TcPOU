@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="MAIN" Id="{50b8efee-224c-4311-8177-06af3dcc3016}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	udiDeviceID 			: UDINT 	:= 1;
+	sTargetNetID 			: STRING 	:= '192.168.1.20.1.1';
+	sSlaveDescriptionPath	: STRING 	:= 'C:\TwinCAT\3.1\Config\Io\EtherCAT';
+	udiZoomFactor 			: UDINT 	:= 3;
+	bReadOnly 				: BOOL;
+	bSowSlaveInfo			: BOOL;
+	bShowOnlineTopology		: BOOL;
+	bRefresh 				: BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="17" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
