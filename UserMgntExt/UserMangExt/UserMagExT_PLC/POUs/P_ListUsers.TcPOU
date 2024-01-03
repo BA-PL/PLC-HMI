@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_ListUsers" Id="{da712600-b02d-4219-8abb-3c6e09521d0d}" SpecialFunc="None">
+    <Declaration><![CDATA[// program do odczytania danych o istniejacyhc uzytkownikach
+PROGRAM P_ListUsers
+VAR
+	fbUserMng   			: VisuUserManagement.VisuUserMgmt;
+   	stRet      				: VisuUserManagement.VUM_ReturnValues;
+   	udiNumberOfUsers   		: UDINT;
+   	dwUserDB         		: DWORD;
+   	bUpdateUserList   		: BOOL;
+   	aUserList         		: ARRAY[0..5] OF VisuUserManagement.VUM_User;
+	aUsers					: ARRAY[0..2] OF ST_user; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bUpdateUserList THEN
+	bUpdateUserList:=FALSE;
+   	dwUserDB := fbUserMng.GetUserDBAsCopy();
+   	udiNumberOfUsers := fbUserMng.GetUserCount(dwUserDB);
+
+ 	stRet := fbUserMng.GetUsers(
+                 dwUserDB:= dwUserDB, 
+                 udiStartIndex:= 0, 
+                 udiEndIndex:= udiNumberOfUsers-1, 
+                 pArr:=  ADR(aUserList),
+                 udiArrSize:= udiNumberOfUsers);
+END_IF
+
+A_Users();
+
+
+
+
+
+
+
+
+
+]]></ST>
+    </Implementation>
+    <Action Name="A_Users" Id="{0124b744-8f42-4bc6-8128-0a93cf8cf0c4}">
+      <Implementation>
+        <ST><![CDATA[//przepisanie pobranej listy uzytkownikow do tablicy ktora bedzie wuswietlana na wizualizacji
+
+aUsers[0].wsUserName:=aUserList[0].wstUserName;
+aUsers[0].wsUserFullName:=aUserList[0].wstFullName;
+aUsers[0].dwGroupID:=aUserList[0].dwUserGroupID;
+aUsers[0].bDeactivated:=aUserList[0].bDeactivated;
+
+aUsers[1].wsUserName:=aUserList[1].wstUserName;
+aUsers[1].wsUserFullName:=aUserList[1].wstFullName;
+aUsers[1].dwGroupID:=aUserList[1].dwUserGroupID;
+aUsers[1].bDeactivated:=aUserList[1].bDeactivated;
+
+aUsers[2].wsUserName:=aUserList[2].wstUserName;
+aUsers[2].wsUserFullName:=aUserList[2].wstFullName;
+aUsers[2].dwGroupID:=aUserList[2].dwUserGroupID;
+aUsers[2].bDeactivated:=aUserList[2].bDeactivated;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="P_ListUsers">
+      <LineId Id="91" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="92" Count="1" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="100" Count="5" />
+      <LineId Id="79" Count="2" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="82" Count="7" />
+      <LineId Id="45" Count="0" />
+    </LineIds>
+    <LineIds Name="P_ListUsers.A_Users">
+      <LineId Id="18" Count="1" />
+      <LineId Id="1" Count="3" />
+      <LineId Id="8" Count="3" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="14" Count="3" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

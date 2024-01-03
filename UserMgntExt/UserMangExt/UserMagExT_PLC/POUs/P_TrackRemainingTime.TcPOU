@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_TrackRemainingTime" Id="{952125c7-a2f3-42a7-8645-032dd76e00f5}" SpecialFunc="None">
+    <Declaration><![CDATA[// przykladowy program sledzacy ile czasu zostalo do automatycznego wylogowwania danego uzytkownika
+PROGRAM P_TrackRemainingTime
+VAR
+	aCurrentUser	:	ARRAY [0..2,0..10] OF WSTRING;	
+	uiIndex			:	UINT;
+
+	pClient			:	POINTER TO VisuElems.VisuElemBase.VisuStructClientData;
+	sName			:	WSTRING;
+
+// PWD for all users: "1"
+	tHelp 			: TIME;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[uiIndex := 0;
+
+VisuElems.VisuElemBase.g_ClientManager.BeginIteration();
+
+WHILE (pClient := VisuElems.VisuElemBase.g_ClientManager.GetNextClient()) <> 0 DO
+	IF uiIndex < 10 THEN
+		sName := pClient^.GlobalData.CurrentUserName;
+		IF NOT (sName = "") THEN
+			aCurrentUser[0,uiIndex] := sName;	
+
+			IF pClient^.GlobalData.ClientType = VisuElems.VisuElemBase.Visu_ClientType.ProgrammingSystem THEN		
+				aCurrentUser[1,uiIndex] := "ProgrammingSystem";
+			ELSIF pClient^.GlobalData.ClientType = VisuElems.VisuElemBase.Visu_ClientType.WebVisualization THEN
+				aCurrentUser[1,uiIndex] := "WebVisu";
+			ELSE
+				aCurrentUser[1,uiIndex] := "TargetVisu";
+			END_IF	
+			tHelp := pClient^.GlobalData.LastUsage - pClient^.GlobalData.AutoLogoutTimeStart;
+			aCurrentUser[2,uiIndex] := TIME_TO_WSTRING(pClient^.GlobalData.AutoLogoutTime - tHelp);
+		ELSE
+			aCurrentUser[0,uiIndex] := "";
+			aCurrentUser[1,uiIndex] := "";	
+			aCurrentUser[2,uiIndex] := "";	
+		END_IF
+	END_IF
+	uiIndex := uiIndex + 1;
+END_WHILE
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_TrackRemainingTime">
+      <LineId Id="14" Count="26" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
