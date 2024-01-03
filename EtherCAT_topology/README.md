@@ -1,28 +1,35 @@
-# PLC-HMI
-TF1800 PLC HMI Samples
-Zamieszczone projekty są jedynie przykładami i korzystanie z nich/ adaptację do swojego projektu, robią Państwo na własną odpowiedzialność.
+# Instrukcja 
+Przygotowanie plików do wyświetlania topologii  EtherCAT na wizualizacji:
+- szukamy na komputerze na którym zainstalowane jest pełne narzędzie TwinCAT, pliku EcTopology.dll (C:\TwinCAT\3.1\Components\Base)
+- kopiujemy go i wklejamy do takiej samej lokalizacji na sterowniku ( jeśli na sterowniku nie ma takiej ścieżki – należy ją stworzyć)
+- następnie,  na  sterowniku,  szukamy  w  lokalizacji  C:\Windows\System32  pliku  regsvr32.exe. Przeciągamy na ten plik skopiowany wcześniej EcTopology.dll. Powinien się pojawić komunikat o prawidłowej rejestracji
 
-Lista projektów:
-- ActiveX_PDFSample -  przykład do obsługi plików PDF na wizualizacji 
-- CustomKeypad_with_Hotkeys - edycja domyślnej klawiatury wizualizacji wraz z obsługą klawiatury fizycznej
-- Dialog - przykład z obsługą własnego okienka dialogowego (popup)
-- EtherCATTopology - przykład z instrukcją, do wyświetlania topologii sieci EtherCAT na wizualizacji
-- EventsHistoricalSimple - własna obsługa zdarzeń z historią w formie danych PERSISTENT 
-- EventTable - przykład obsługi wbudowanej tabeli zdarzeń (tylko aktywne alarmy)
-- HMISample - przykładowy szablon wizualizacji z nawigacją i najczęściej używanymi elementami wizualizacji
-		(m.in Histogram jako wykres, FileOpenSave dialog, użytkownicy, zmiana języka)
-- RecipeManagementSample - przykład obsługi receptur zaówno z poziomu kodu PLC jak i wizualizacji
-- UserMangExt - przykład zwierający dodatkowe funckcje dla użytkowników wizualizacji
-		(m.in logwanie z poziomu kodu PLC, własne okienko logowania)
-- UsersWithExternalDB - obsługa użytkowników z zewnętrzną bazą danych
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/9d95ef53-449b-444b-a963-7211eb1f32c5)
 
-Dodatkowo:
-- TC3_PLC_HMI_BASE  - instrukcja "pierwsze kroki" z wizualiacją PLC HMI
-- Short_WebVisu_url - instrukcja jak skrócić adres wizualizacji webowej
+- z komputera, gdzie jest narzędzie, z lokalizacji C:\TwinCAT\3.1\Config\IO\EtherCAT kopiujemy pliki xml od modułów, które występują w naszej konfiguracji, i wklejamy do tej samej lokalizacji na sterowniku (tylko pliki od modułów które rzeczywiście znajdują się w naszej konfiguracji, im więcej plików, tym dłużej wizualizacja będzie się wczytywać)
+- wykonujemy restart sterownika (z poziomu systemu Windows, nie poprzez zdjęcie zasilania) Projekt PLC:
+- na ekran wizualizacji wstawimy z Toolbox element ActiveX
 
-Przydatne linki:
-- dostępność elementów wizualizacji na danej platformie: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/9007202779117963.html
-- formatowanie tekstu: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/3524724747.html
-- warianty wizualizacji: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/36028800543330187.html
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/173983c4-4da6-4a88-9fc1-8668389ae20a)
 
-Oficjalne informacje : https://infosys.beckhoff.com
+- we właściwości Control wybieramy opcję EcTopology.EcTopologyCtrl.1
+
+ ![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/3e57c1d7-9a2f-449f-bf51-7c228ad0664a)
+
+ - następnie konfigurujemy metody:
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/cbca7605-449d-4f42-bddb-e8fe59d14045)
+
+Zmienna metody TargetNetID powinna zawierać adres AmsNetID sterownika, można go odnaleźć w projekcie tutaj:
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/929c0f2b-52a3-45b0-b604-737f9f77a292)
+
+Zmienna metody DeviceID powinna zawierać ID mastera EtherCAT:
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/a3f90c9f-affe-4657-b14f-1bff4208cbde)
+
+Zmienna  metody  SlaveDescriptionPath  powinna  zawierać  ścieżkę  do  plików  xml  –  tutaj  zawsze C:\TwinCAT\3.1\Config\Io\EtherCAT
+
+![image](https://github.com/BA-PL/PLC-HMI/assets/155453679/117d157f-0737-413b-9cac-cbab392df8ee)
+
+Pozostała konfiguracja akcji warunkowych – jak w projekcie.
