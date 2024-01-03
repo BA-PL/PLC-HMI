@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="MAIN" Id="{4827b60d-9066-4abc-9b71-8a8a14f3e433}" SpecialFunc="None">
+    <Declaration><![CDATA[(*	| author		| Beckhoff Automation Poland	|	*)
+(* 	-------------------------------------------------	*)
+(*	| wersion		| 3.0							|	*)
+(* 	-------------------------------------------------	*)
+(*	| TC version	| 3.1.4024.7					| 	*)
+(* 	-------------------------------------------------	*)
+(*	| date			| 19.05.2020					|	*)
+(* 	-------------------------------------------------	*)
+(*	| description	| sample visu with navigation		
+					  and frequently used functions	|  	*)
+PROGRAM MAIN
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[P_HmiControl();
+P_UserControl();
+P_SystemInfo();
+P_TaskInfo();
+P_PersistentData();
+P_Events();
+P_FileDialog();
+P_Table();
+P_ControllerInfo();
+P_CloseTcHmiExe();
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="52" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="68" Count="3" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="98" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

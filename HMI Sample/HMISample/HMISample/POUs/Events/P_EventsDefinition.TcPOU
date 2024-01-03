@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="P_EventsDefinition" Id="{74557ff6-8b9b-4e58-8177-67f637887c88}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+//	Program definiujacy zdarzenia - musi byc dostosowany do aplikacji
+//	W pierwszym cyklu definiowane sa klasy
+//	Zmiana jezyka na zdarzenie i w pierwszym cyklu
+//	Wykrywanie aktywnosci zdarzenia i parametru - cykliczne
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+PROGRAM P_EventsDefinition
+VAR
+	bFirstCycle 							: BOOL := TRUE;
+	dwPreviousLanguageID					: DWORD;
+	i										: INT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Class
+IF bFirstCycle THEN
+	ACT_ClassDefinition();
+	bFirstCycle 							:= FALSE;
+END_IF
+
+// Language
+ACT_Language();
+
+// Active
+ACT_Active();]]></ST>
+    </Implementation>
+    <Action Name="ACT_1033_US" Id="{c9dda7b6-cfaf-4100-9341-72cb3d4d3967}">
+      <Implementation>
+        <ST><![CDATA[// Fatal Error
+GVL_EHS.arrEventDefinition[1].wsMessage	 	:= "Error01";
+
+// Warning
+GVL_EHS.arrEventDefinition[101].wsMessage 	:= "Warning01";
+
+// Message
+GVL_EHS.arrEventDefinition[201].wsMessage 	:= "Message01";
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_1045_PL" Id="{c0749611-25b3-4626-87bb-7810c6e235f9}">
+      <Implementation>
+        <ST><![CDATA[//]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Active" Id="{7f1336fc-dde0-4b4d-9f57-1936194aab11}">
+      <Implementation>
+        <ST><![CDATA[GVL_EHS.arrEventDefinition[1].bActive:= GVL_HMI.bAlarm;
+GVL_EHS.arrEventDefinition[101].bActive:=GVL_HMI.bWarning;
+GVL_EHS.arrEventDefinition[201].bActive:=GVL_HMI.bMessage;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_ClassDefinition" Id="{fa5305e5-08a7-4682-9838-d6e651c9453e}">
+      <Implementation>
+        <ST><![CDATA[FOR i := 1 TO 100 DO
+	// Error - [1..100] - Class 0
+	GVL_EHS.arrEventDefinition[i].dwClass := 0;
+	// Warning - [101..200] - Class 1
+	GVL_EHS.arrEventDefinition[100+i].dwClass := 1;
+	// Message - [201..300] - Class 2
+	GVL_EHS.arrEventDefinition[200+i].dwClass := 2;
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Language" Id="{358a6442-c435-4f8e-a40b-b3f5c97bde17}">
+      <Implementation>
+        <ST><![CDATA[// Wybor jezyka
+IF dwPreviousLanguageID <> GVL_EHS.dwLanguageId THEN
+	CASE GVL_EHS.dwLanguageId OF
+		
+		1033:	// United States
+			ACT_1033_US();
+			
+		1045:	// Polish
+			ACT_1045_PL();
+	
+	ELSE	// Default Polish
+		
+			ACT_1045_PL();
+	END_CASE
+END_IF
+
+dwPreviousLanguageID := GVL_EHS.dwLanguageId;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="P_EventsDefinition">
+      <LineId Id="21" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="43" Count="1" />
+      <LineId Id="23" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="P_EventsDefinition.ACT_1033_US">
+      <LineId Id="61" Count="0" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="P_EventsDefinition.ACT_1045_PL">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="P_EventsDefinition.ACT_Active">
+      <LineId Id="33" Count="0" />
+      <LineId Id="695" Count="2" />
+    </LineIds>
+    <LineIds Name="P_EventsDefinition.ACT_ClassDefinition">
+      <LineId Id="24" Count="5" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="P_EventsDefinition.ACT_Language">
+      <LineId Id="2" Count="15" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

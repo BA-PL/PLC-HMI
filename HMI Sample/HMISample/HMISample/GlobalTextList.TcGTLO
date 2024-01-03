@@ -1,0 +1,1507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <GlobalTextList Name="GlobalTextList" Id="{e83bdbb7-007b-49bc-9441-056aaa0709ca}">
+    <XmlArchive>
+      <Data>
+        <o xml:space="preserve" t="GlobalTextListObject">
+          <l n="TextList" t="ArrayList" cet="TextListRow">
+            <o>
+              <v n="TextID">"791"</v>
+              <v n="TextDefault">"  "</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"136"</v>
+              <v n="TextDefault">"   Czas cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Cycle Time</v>
+                <v>Czas cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"149"</v>
+              <v n="TextDefault">"  Przekroczony cykl"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Exceeded cycle </v>
+                <v>Przekroczony cykl</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"969"</v>
+              <v n="TextDefault">"  Reamining time: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Remaining time: %s</v>
+                <v>Pozostały czas: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"460"</v>
+              <v n="TextDefault">"  Stan zmiennych persistent"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Persistent variables</v>
+                <v>Stan zmiennych persistent</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"517"</v>
+              <v n="TextDefault">"  User group: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>User group: %s</v>
+                <v>Grupa użytkowników: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"589"</v>
+              <v n="TextDefault">"  User Name: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>User name: %s</v>
+                <v>Nazwa użytkownika: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"340"</v>
+              <v n="TextDefault">"!"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>!</v>
+                <v>!</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"343"</v>
+              <v n="TextDefault">"""</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>"</v>
+                <v>"</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"973"</v>
+              <v n="TextDefault">"#"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>#</v>
+                <v>#</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"346"</v>
+              <v n="TextDefault">"$"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>$</v>
+                <v>$</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"350"</v>
+              <v n="TextDefault">"%"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%</v>
+                <v>%</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"425"</v>
+              <v n="TextDefault">"%.3f"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%.3f</v>
+                <v>%.3f</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1614"</v>
+              <v n="TextDefault">"%d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%d</v>
+                <v>%d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"703"</v>
+              <v n="TextDefault">"%s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%s</v>
+                <v>%s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"214"</v>
+              <v n="TextDefault">"%t[dd/MM/yyyy]"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%t[dd/MM/yyyy]</v>
+                <v>%t[dd/MM/yyyy]</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"213"</v>
+              <v n="TextDefault">"%t[HH:mm:ss]"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>%t[HH:mm:ss]</v>
+                <v>%t[HH:mm:ss]</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"353"</v>
+              <v n="TextDefault">"&amp;"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>&amp;</v>
+                <v>&amp;</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"477"</v>
+              <v n="TextDefault">"'"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>'</v>
+                <v>'</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"356"</v>
+              <v n="TextDefault">"("</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>(</v>
+                <v>(</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"360"</v>
+              <v n="TextDefault">")"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>)</v>
+                <v>)</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"330"</v>
+              <v n="TextDefault">"*"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>*</v>
+                <v>*</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"328"</v>
+              <v n="TextDefault">"+"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>+</v>
+                <v>+</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"284"</v>
+              <v n="TextDefault">"+/-"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>+/-</v>
+                <v>+/-</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"480"</v>
+              <v n="TextDefault">","</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>,</v>
+                <v>,</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"448"</v>
+              <v n="TextDefault">"-"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>-</v>
+                <v>-</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"484"</v>
+              <v n="TextDefault">"."</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>.</v>
+                <v>.</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"488"</v>
+              <v n="TextDefault">"/"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>/</v>
+                <v>/</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"445"</v>
+              <v n="TextDefault">"0"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>0</v>
+                <v>0</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1182"</v>
+              <v n="TextDefault">"05-500 Piaseczno"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>05-500 Piaseczno</v>
+                <v>05-500 Piaseczno</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"600"</v>
+              <v n="TextDefault">"1"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>1</v>
+                <v>1</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1325"</v>
+              <v n="TextDefault">"10"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>10</v>
+                <v>10</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"606"</v>
+              <v n="TextDefault">"2"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>2</v>
+                <v>2</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"421"</v>
+              <v n="TextDefault">"3"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>3</v>
+                <v>3</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"423"</v>
+              <v n="TextDefault">"4"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>4</v>
+                <v>4</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"894"</v>
+              <v n="TextDefault">"48 22 / 7 50 47 00"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>48 22 / 7 50 47 00</v>
+                <v>48 22 / 7 50 47 00</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"427"</v>
+              <v n="TextDefault">"5"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>5</v>
+                <v>5</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"430"</v>
+              <v n="TextDefault">"6"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>6</v>
+                <v>6</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"434"</v>
+              <v n="TextDefault">"7"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>7</v>
+                <v>7</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"437"</v>
+              <v n="TextDefault">"8"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>8</v>
+                <v>8</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"441"</v>
+              <v n="TextDefault">"9"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>9</v>
+                <v>9</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"788"</v>
+              <v n="TextDefault">":"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>:</v>
+                <v>:</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"473"</v>
+              <v n="TextDefault">";"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>;</v>
+                <v>;</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"773"</v>
+              <v n="TextDefault">"&lt;"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>&lt;</v>
+                <v>&lt;</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"452"</v>
+              <v n="TextDefault">"="</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>=</v>
+                <v>=</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"774"</v>
+              <v n="TextDefault">"&gt;"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>&gt;</v>
+                <v>&gt;</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"298"</v>
+              <v n="TextDefault">"&gt;&gt;"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>&gt;&gt;</v>
+                <v>&gt;&gt;</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"363"</v>
+              <v n="TextDefault">"?"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>?</v>
+                <v>?</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"974"</v>
+              <v n="TextDefault">"@"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>@</v>
+                <v>@</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"218"</v>
+              <v n="TextDefault">"A"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>A</v>
+                <v>A</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"790"</v>
+              <v n="TextDefault">"a"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>a</v>
+                <v>a</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1771"</v>
+              <v n="TextDefault">"Active Only"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Active onlny</v>
+                <v>Tylko aktywne</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"578"</v>
+              <v n="TextDefault">"Admin"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Admin</v>
+                <v>Admin</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1640"</v>
+              <v n="TextDefault">"Alarm"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"783"</v>
+              <v n="TextDefault">"b"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>b</v>
+                <v>b</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"784"</v>
+              <v n="TextDefault">"B"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>B</v>
+                <v>B</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"282"</v>
+              <v n="TextDefault">"Back"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Back</v>
+                <v>Back</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"417"</v>
+              <v n="TextDefault">"Backspace"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Backspace</v>
+                <v>Backspace</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"2094"</v>
+              <v n="TextDefault">"Beckhoff Automation Poland "</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Beckhoff Automation Polad</v>
+                <v>Beckhoff Automation Polad</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"957"</v>
+              <v n="TextDefault">"Błąd"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Error</v>
+                <v>Błąd</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"779"</v>
+              <v n="TextDefault">"c"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>c</v>
+                <v>c</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"780"</v>
+              <v n="TextDefault">"C"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>C</v>
+                <v>C</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"57"</v>
+              <v n="TextDefault">"Change Password"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Change Password</v>
+                <v>Zmień hasło</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"416"</v>
+              <v n="TextDefault">"Clear"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Clear</v>
+                <v>Clear</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1188"</v>
+              <v n="TextDefault">"Close"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Close</v>
+                <v>Zamknij</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1928"</v>
+              <v n="TextDefault">"Current User: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Current User: %s</v>
+                <v>Użytkownik: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"424"</v>
+              <v n="TextDefault">"Czas cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Cycle time</v>
+                <v>Czas cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"315"</v>
+              <v n="TextDefault">"Czas rozpoczęcia pracy: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Work started : %s</v>
+                <v>Czas rozpoczęcia pracy: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"610"</v>
+              <v n="TextDefault">"d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>d</v>
+                <v>d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"611"</v>
+              <v n="TextDefault">"D"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>D</v>
+                <v>D</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1530"</v>
+              <v n="TextDefault">"Device Info"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Device Info</v>
+                <v>Device Info</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"492"</v>
+              <v n="TextDefault">"Directory and File Name"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Directory and file name</v>
+                <v>Ścieżka i nazwa pliku</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"490"</v>
+              <v n="TextDefault">"Directory to Open"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Directory to open</v>
+                <v>Ścieżka</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"979"</v>
+              <v n="TextDefault">"e"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>e</v>
+                <v>e</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"980"</v>
+              <v n="TextDefault">"E"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>E</v>
+                <v>E</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"415"</v>
+              <v n="TextDefault">"ESC"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>ESC</v>
+                <v>ESC</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"612"</v>
+              <v n="TextDefault">"f"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>f</v>
+                <v>f</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"613"</v>
+              <v n="TextDefault">"F"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>F</v>
+                <v>F</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"288"</v>
+              <v n="TextDefault">"File Dialog"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>File Dialog</v>
+                <v>Dialog plików</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"495"</v>
+              <v n="TextDefault">"File Name"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>File Name</v>
+                <v>Nazwa pliku</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"614"</v>
+              <v n="TextDefault">"g"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>g</v>
+                <v>g</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"615"</v>
+              <v n="TextDefault">"G"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>G</v>
+                <v>G</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"217"</v>
+              <v n="TextDefault">"H"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>H</v>
+                <v>H</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"616"</v>
+              <v n="TextDefault">"h"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>h</v>
+                <v>h</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"219"</v>
+              <v n="TextDefault">"I"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>I</v>
+                <v>I</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"988"</v>
+              <v n="TextDefault">"i"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>i</v>
+                <v>i</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1588"</v>
+              <v n="TextDefault">"Index: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Index: %d</v>
+                <v>Index: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1562"</v>
+              <v n="TextDefault">"Info task"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Info task</v>
+                <v>Info task</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1571"</v>
+              <v n="TextDefault">"Informacje o  tasku"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Task Info</v>
+                <v>Informacje o tasku</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1597"</v>
+              <v n="TextDefault">"Informacje o przekroczonym cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Cycle exceeded</v>
+                <v>Informacje o przekroczonym cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"617"</v>
+              <v n="TextDefault">"j"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>j</v>
+                <v>j</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"618"</v>
+              <v n="TextDefault">"J"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>J</v>
+                <v>J</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"619"</v>
+              <v n="TextDefault">"k"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>k</v>
+                <v>k</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"970"</v>
+              <v n="TextDefault">"K"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>K</v>
+                <v>K</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"303"</v>
+              <v n="TextDefault">"Kolumna: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Column: %d</v>
+                <v>Kolumna: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"971"</v>
+              <v n="TextDefault">"l"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>l</v>
+                <v>l</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"972"</v>
+              <v n="TextDefault">"L"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>L</v>
+                <v>L</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"546"</v>
+              <v n="TextDefault">"Language:"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Language:</v>
+                <v>Język:</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"311"</v>
+              <v n="TextDefault">"Liczba tasków: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Task count:  %d</v>
+                <v>Liczba tasków: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"313"</v>
+              <v n="TextDefault">"Liczba zmian online: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Online changes: %d</v>
+                <v>Liczba zmian online: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1622"</v>
+              <v n="TextDefault">"Licznik przekroczeń cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Exceeded cycle counter</v>
+                <v>Licznik przekroczeń cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"482"</v>
+              <v n="TextDefault">"Login"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Login</v>
+                <v>Login</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"77"</v>
+              <v n="TextDefault">"Logout"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Logout</v>
+                <v>Logout</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"216"</v>
+              <v n="TextDefault">"M"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>M</v>
+                <v>M</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"787"</v>
+              <v n="TextDefault">"m"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>m</v>
+                <v>m</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"826"</v>
+              <v n="TextDefault">"Main1"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Main1</v>
+                <v>Main1</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"557"</v>
+              <v n="TextDefault">"Main2"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Main2</v>
+                <v>Main2</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"706"</v>
+              <v n="TextDefault">"Maintenance"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Maintenance</v>
+                <v>Maintenance</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"105"</v>
+              <v n="TextDefault">"Max. czas cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Max. cycle time</v>
+                <v>Max. czas cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"590"</v>
+              <v n="TextDefault">"Max:"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Max:</v>
+                <v>Max:</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"475"</v>
+              <v n="TextDefault">"Message"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"585"</v>
+              <v n="TextDefault">"Min:"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Min:</v>
+                <v>Min:</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"785"</v>
+              <v n="TextDefault">"n"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>n</v>
+                <v>n</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"786"</v>
+              <v n="TextDefault">"N"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>N</v>
+                <v>N</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"309"</v>
+              <v n="TextDefault">"Nazwa projektu: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Project name: %s</v>
+                <v>Nazwa projektu: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1579"</v>
+              <v n="TextDefault">"Nazwa tasku: %s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Task name: %s</v>
+                <v>Nazwa tasku: %s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"422"</v>
+              <v n="TextDefault">"NIE"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>No</v>
+                <v>NIE</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"881"</v>
+              <v n="TextDefault">"None"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>None</v>
+                <v>None</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1107"</v>
+              <v n="TextDefault">"Nowa wartość: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>New value: %d</v>
+                <v>Nowa wartość: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"989"</v>
+              <v n="TextDefault">"o"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>o</v>
+                <v>o</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"990"</v>
+              <v n="TextDefault">"O"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>O</v>
+                <v>O</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"414"</v>
+              <v n="TextDefault">"OK"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>OK</v>
+                <v>OK</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1097"</v>
+              <v n="TextDefault">"Open Dialog"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Open dialog</v>
+                <v>Otwórz dialog</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"686"</v>
+              <v n="TextDefault">"Operator"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Operator</v>
+                <v>Operator</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"148"</v>
+              <v n="TextDefault">"Option4"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Option4</v>
+                <v>Opcja4</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"232"</v>
+              <v n="TextDefault">"Option5"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Option5</v>
+                <v>Opcja5</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"756"</v>
+              <v n="TextDefault">"Option6"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Option6</v>
+                <v>Opcja6</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"426"</v>
+              <v n="TextDefault">"Ostatni czas cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Last cycle time</v>
+                <v>Ostatni czas cyklu</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"991"</v>
+              <v n="TextDefault">"p"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>p</v>
+                <v>p</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"327"</v>
+              <v n="TextDefault">"P"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>P</v>
+                <v>P</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"941"</v>
+              <v n="TextDefault">"POTWIERDŹ"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>CONFIRM</v>
+                <v>POTWIERDŹ</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1605"</v>
+              <v n="TextDefault">"Priorytet"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Priority</v>
+                <v>Priorytet</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1631"</v>
+              <v n="TextDefault">"Przekroczony cykl"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Cycle exceeded</v>
+                <v>Przekroczony cykl</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"975"</v>
+              <v n="TextDefault">"q"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>q</v>
+                <v>q</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"976"</v>
+              <v n="TextDefault">"Q"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Q</v>
+                <v>Q</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"981"</v>
+              <v n="TextDefault">"r"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>r</v>
+                <v>r</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"982"</v>
+              <v n="TextDefault">"R"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>R</v>
+                <v>R</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"106"</v>
+              <v n="TextDefault">"RESET"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>RESET</v>
+                <v>RESET</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"296"</v>
+              <v n="TextDefault">"Reset"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Reset</v>
+                <v>Reset</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"221"</v>
+              <v n="TextDefault">"S"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>S</v>
+                <v>S</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"609"</v>
+              <v n="TextDefault">"s"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>s</v>
+                <v>s</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"418"</v>
+              <v n="TextDefault">"Shift"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Shift</v>
+                <v>Shift</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1066"</v>
+              <v n="TextDefault">"Show"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Show</v>
+                <v>Pokaż</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"419"</v>
+              <v n="TextDefault">"Space"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Space</v>
+                <v>Space</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"674"</v>
+              <v n="TextDefault">"support@beckhoff.pl"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>suppoer@beckhoff.pl</v>
+                <v>support@beckhoff.pl</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"307"</v>
+              <v n="TextDefault">"System info"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>System info</v>
+                <v>System info</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1047"</v>
+              <v n="TextDefault">"System Info"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>System Info</v>
+                <v>System Info</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"983"</v>
+              <v n="TextDefault">"t"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>t</v>
+                <v>t</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"984"</v>
+              <v n="TextDefault">"T"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>T</v>
+                <v>T</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"869"</v>
+              <v n="TextDefault">"Table"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Table</v>
+                <v>Tabela</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1639"</v>
+              <v n="TextDefault">"TAK"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Yes</v>
+                <v>TAK</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"95"</v>
+              <v n="TextDefault">"Task Info"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Task Info</v>
+                <v>TAsk Info</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1327"</v>
+              <v n="TextDefault">"Trends"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Trends</v>
+                <v>Trendy</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"220"</v>
+              <v n="TextDefault">"U"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>U</v>
+                <v>U</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"987"</v>
+              <v n="TextDefault">"u"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>u</v>
+                <v>u</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1645"</v>
+              <v n="TextDefault">"ul. Ruczajowa 15"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>ul. Ruczajowa 15</v>
+                <v>ul. Ruczajowa 15</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"968"</v>
+              <v n="TextDefault">"User Management"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>User Management</v>
+                <v>Zarządzaj </v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1185"</v>
+              <v n="TextDefault">"Ustaw"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Set</v>
+                <v>Set </v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"781"</v>
+              <v n="TextDefault">"v"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>v</v>
+                <v>v</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"782"</v>
+              <v n="TextDefault">"V"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>V</v>
+                <v>V</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"977"</v>
+              <v n="TextDefault">"w"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>w</v>
+                <v>w</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"978"</v>
+              <v n="TextDefault">"W"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>W</v>
+                <v>W</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1060"</v>
+              <v n="TextDefault">"Warning"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"446"</v>
+              <v n="TextDefault">"Wartość: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Value: %d</v>
+                <v>Wartość: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"156"</v>
+              <v n="TextDefault">"Wiersz: %d"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Line: %d</v>
+                <v>Wiersz: %d</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1473"</v>
+              <v n="TextDefault">"www.beckhoff.pl"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>www.beckhoff.pl</v>
+                <v>www.beckhoff.pl</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"777"</v>
+              <v n="TextDefault">"x"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>x</v>
+                <v>x</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"778"</v>
+              <v n="TextDefault">"X"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>X</v>
+                <v>X</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"775"</v>
+              <v n="TextDefault">"y"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>y</v>
+                <v>y</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"776"</v>
+              <v n="TextDefault">"Y"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Y</v>
+                <v>Y</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"985"</v>
+              <v n="TextDefault">"z"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>z</v>
+                <v>z</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"986"</v>
+              <v n="TextDefault">"Z"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Z</v>
+                <v>Z</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1638"</v>
+              <v n="TextDefault">"Załadowano plik zapasowy"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Bakup file loaded</v>
+                <v>Załadowano plik zapasowy</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"874"</v>
+              <v n="TextDefault">"Załadowano poprawnie"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Loaded correctly</v>
+                <v>Załadowano poprawnie</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"459"</v>
+              <v n="TextDefault">"["</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>[</v>
+                <v>[</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"470"</v>
+              <v n="TextDefault">"\"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>\</v>
+                <v>\</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"466"</v>
+              <v n="TextDefault">"]"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>]</v>
+                <v>]</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"337"</v>
+              <v n="TextDefault">"^"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>^</v>
+                <v>^</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"789"</v>
+              <v n="TextDefault">"_"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>_</v>
+                <v>_</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"455"</v>
+              <v n="TextDefault">"{"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>{</v>
+                <v>{</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"420"</v>
+              <v n="TextDefault">"|"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>|</v>
+                <v>|</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"462"</v>
+              <v n="TextDefault">"}"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>}</v>
+                <v>}</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"333"</v>
+              <v n="TextDefault">"~"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>~</v>
+                <v>~</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"595"</v>
+              <v n="TextDefault">"´"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>'</v>
+                <v>´</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"428"</v>
+              <v n="TextDefault">"Średni czas cyklu"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Average cycle time</v>
+                <v>Średni czas cyklu</v>
+              </l>
+            </o>
+          </l>
+          <l n="Languages" t="ArrayList" cet="String">
+            <v>EN\</v>
+            <v>PL</v>
+          </l>
+          <v n="GuidInit">{499b9f4e-0724-450f-ad58-ee7554298505}</v>
+          <v n="GuidReInit">{032dfbc4-9ce6-4f1e-96e8-e8b98e5fe218}</v>
+          <v n="GuidExitX">{b2cfecee-b63b-407c-a677-ec571db463ce}</v>
+        </o>
+      </Data>
+      <TypeList>
+        <Type n="ArrayList">System.Collections.ArrayList</Type>
+        <Type n="GlobalTextListObject">{63784cbb-9ba0-45e6-9d69-babf3f040511}</Type>
+        <Type n="Guid">System.Guid</Type>
+        <Type n="String">System.String</Type>
+        <Type n="TextListRow">{53da1be7-ad25-47c3-b0e8-e26286dad2e0}</Type>
+      </TypeList>
+    </XmlArchive>
+  </GlobalTextList>
+</TcPlcObject>

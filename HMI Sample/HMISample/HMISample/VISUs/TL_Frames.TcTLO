@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+  <TextList Name="TL_Frames" Id="{63b0673b-cd4d-4bfd-893f-bb607e749546}">
+    <XmlArchive>
+      <Data>
+        <o xml:space="preserve" t="TextListObject">
+          <v n="UniqueIdGenerator">"0"</v>
+          <l n="TextList" t="ArrayList" cet="TextListRow">
+            <o>
+              <v n="TextID">"0"</v>
+              <v n="TextDefault">"Home"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Home</v>
+                <v>Główna</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1"</v>
+              <v n="TextDefault">"Alarms"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Alarms</v>
+                <v>Alarmy</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"2"</v>
+              <v n="TextDefault">"Info"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Info</v>
+                <v>Info</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"3"</v>
+              <v n="TextDefault">"Users"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Users</v>
+                <v>Użytkownicy</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"4"</v>
+              <v n="TextDefault">"Settings"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Settings</v>
+                <v>Ustawienia</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"5"</v>
+              <v n="TextDefault">"File Dialog"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>File Dialog</v>
+                <v>Dialog plików</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"6"</v>
+              <v n="TextDefault">"Table"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Table</v>
+                <v>Tabela</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"7"</v>
+              <v n="TextDefault">"Trends"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Trends</v>
+                <v>Trendy</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"8"</v>
+              <v n="TextDefault">"Option4"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Option4</v>
+                <v>Opcja4</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"9"</v>
+              <v n="TextDefault">"Option5"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Option5</v>
+                <v>Opcja5</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"10"</v>
+              <v n="TextDefault">"Option6"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Opion6</v>
+                <v>Opcja6</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">""</v>
+              <v n="TextDefault">""</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+          </l>
+          <l n="Languages" t="ArrayList" cet="String">
+            <v>EN\</v>
+            <v>PL</v>
+          </l>
+          <v n="GuidInit">{8b15e29c-6adb-402b-aab8-613141af04b8}</v>
+          <v n="GuidReInit">{fc1c8744-d007-404c-a4d3-174db8ab74d3}</v>
+          <v n="GuidExitX">{ef70f9f3-cf67-4be6-83cd-bc35ae011e2d}</v>
+        </o>
+      </Data>
+      <TypeList>
+        <Type n="ArrayList">System.Collections.ArrayList</Type>
+        <Type n="Guid">System.Guid</Type>
+        <Type n="String">System.String</Type>
+        <Type n="TextListObject">{2bef0454-1bd3-412a-ac2c-af0f31dbc40f}</Type>
+        <Type n="TextListRow">{53da1be7-ad25-47c3-b0e8-e26286dad2e0}</Type>
+      </TypeList>
+    </XmlArchive>
+  </TextList>
+</TcPlcObject>

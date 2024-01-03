@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+  <POU Name="F_SET_Event" Id="{a76b0465-c660-484f-b14f-1c181bcc4040}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_SET_Event : BOOL
+VAR_INPUT
+	dwID									: DWORD;
+	stEventDefinition						: ST_EventDefinition;
+	dtActTime								: DT;
+END_VAR
+VAR
+	i										: DINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Przesun elemety tablicy
+FOR i := 0 TO GVL_EHS.diNoOfEvents-2 DO
+	GVL_EHSP.arrEvent[GVL_EHS.diNoOfEvents-i] := GVL_EHSP.arrEvent[GVL_EHS.diNoOfEvents-i-1];
+END_FOR
+// Dodaj nowy
+GVL_EHSP.arrEvent[1].dwID					:= dwID;
+GVL_EHSP.arrEvent[1].dtDateBegin 			:= dtActTime;
+GVL_EHSP.arrEvent[1].dtDateEnd	 			:= DT#1970-1-1-0:0:0;
+GVL_EHSP.arrEvent[1].dwParam 				:= stEventDefinition.dwParam;
+GVL_EHSP.arrEvent[1].dwClass 				:= stEventDefinition.dwClass;
+]]></ST>
+    </Implementation>
+    <LineIds Name="F_SET_Event">
+      <LineId Id="14" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

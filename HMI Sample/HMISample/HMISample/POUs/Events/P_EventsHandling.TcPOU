@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+  <POU Name="P_EventsHandling" Id="{97657895-cdfa-4cdf-8d6e-a7dd9bb7eb25}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+//	Program obslugujacy zdarzenia historyczne - edycji podlega tylko tRefreshTime i bRealTime
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+PROGRAM P_EventsHandling
+VAR
+	bRealTime								: BOOL := TRUE;		// Odswiezanie ciagle - zmieniamy na FALSE tylko gdy jest duze obciazenie CPU
+																// Zmiana na FLASE powoduje odfiltrowanie alarmow zgodnie z czasem tRefreshTime
+	tonRefresh								: TON;				// Timer odswiezenia
+	tRefreshTime							: TIME := T#1S;		// Czestotliwosc odswiezania - im dluzszy szac tym wieksze ryzyko niezauwazenia wystapienia alarmu
+	bInitialized							: BOOL;				// Flaga inicjalizacji
+	i										: DINT;				// Iterator petli
+	// Tablice wykrycia poczatku/konca zdarzenia
+	arrSet									: ARRAY [1..GVL_EHS.diEventsDefinition] OF R_TRIG;
+	arrReset								: ARRAY [1..GVL_EHS.diEventsDefinition] OF F_TRIG;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Inicjalizacja - po uruchomieniu znajdz niezakonczone alarmy i dodaj aktualny czas jako zakonczenie
+IF NOT bInitialized THEN
+	FOR i := 1 TO GVL_EHS.diEventsDefinition DO
+		F_RESET_Event(dwID:= i, dtActTime:= GVL_EHS.dtActTime);
+	END_FOR	
+	bInitialized 							:= TRUE;
+END_IF
+
+// Timer odswiezania
+tonRefresh(IN:= NOT tonRefresh.Q, PT:= tRefreshTime, Q=> , ET=> );
+
+IF bRealTime OR tonRefresh.Q THEN
+	FOR i := 1 TO GVL_EHS.diEventsDefinition DO
+		// Wykrycie pojawienia sie zdarzenia - ustawienie flagi na 1 cykl i dodanie na poczatek listy
+		arrSet[i](CLK:= GVL_EHS.arrEventDefinition[i].bActive);
+		IF arrSet[i].Q THEN
+			F_SET_Event(dwID:= i, stEventDefinition:= GVL_EHS.arrEventDefinition[i], dtActTime:= GVL_EHS.dtActTime);
+		END_IF
+		// Wykrycie zakonczenia zdarzenia - ustawienie flagi na 1 cykl i dodanie daty zakonczenia
+		arrReset[i](CLK:= GVL_EHS.arrEventDefinition[i].bActive);
+		IF arrReset[i].Q THEN
+			F_RESET_Event(dwID:= i, dtActTime:= GVL_EHS.dtActTime);
+		END_IF
+	END_FOR	
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_EventsHandling">
+      <LineId Id="110" Count="0" />
+      <LineId Id="97" Count="1" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="47" Count="1" />
+      <LineId Id="50" Count="10" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

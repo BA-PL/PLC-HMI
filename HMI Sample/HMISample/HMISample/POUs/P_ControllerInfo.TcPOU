@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_ControllerInfo" Id="{d1ef5c91-6008-4e76-a58e-89e7df3444ab}" SpecialFunc="None">
+    <Declaration><![CDATA[(*program reading information about the controller *)
+PROGRAM P_ControllerInfo
+VAR
+	fbCxGetDeviceIdentification				: FB_CxGetDeviceIdentification;
+	stDevIdent 								: ST_CxDeviceIdentification;
+	arrDevIdent								: ARRAY [0..1, 1..16] OF STRING(23) := [	'Target type:', 'Hardware Model:', 'Hardware Serial No:', 'Hardware Version:', 
+														'Hardware Date:', 'Hardware CPU:', 'Image Device:', 'Image Version:', 'Image Level:', 
+														'Image OS Name:', 'Image OS Version:', 'TwinCAT Version:', 'TwinCAT Revision:', 
+														'TwinCAT Build:', 'TwinCAT Level:', 'AMS NET ID:', 16('')];
+	iSelectedRow							: INT:=1;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbCxGetDeviceIdentification(bExecute:=TRUE ,	stDevIdent=>stDevIdent);
+IF NOT fbCxGetDeviceIdentification.bBusy AND NOT fbCxGetDeviceIdentification.bError THEN
+	
+	
+	// for visu table
+	arrDevIdent[1,1] := stDevIdent.strTargetType;
+	arrDevIdent[1,2] := stDevIdent.strHardwareModel;
+	arrDevIdent[1,3] := stDevIdent.strHardwareSerialNo;
+	arrDevIdent[1,4] := stDevIdent.strHardwareVersion;
+	arrDevIdent[1,5] := stDevIdent.strHardwareDate;
+	arrDevIdent[1,6] := stDevIdent.strHardwareCPU;
+	arrDevIdent[1,7] := stDevIdent.strImageDevice;
+	arrDevIdent[1,8] := stDevIdent.strImageVersion;
+	arrDevIdent[1,9] := stDevIdent.strImageLevel;
+	arrDevIdent[1,10] := stDevIdent.strImageOsName;
+	arrDevIdent[1,11] := stDevIdent.strImageOsVersion;
+	arrDevIdent[1,12] := stDevIdent.strTwinCATVersion;
+	arrDevIdent[1,13] := stDevIdent.strTwinCATRevision;
+	arrDevIdent[1,14] := stDevIdent.strTwinCATBuild;
+	arrDevIdent[1,15] := stDevIdent.strTwinCATLevel;
+	arrDevIdent[1,16] := stDevIdent.strAmsNetId;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="P_ControllerInfo">
+      <LineId Id="12" Count="20" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

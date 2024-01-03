@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_HmiControl" Id="{da712600-b02d-4219-8abb-3c6e09521d0d}" SpecialFunc="None">
+    <Declaration><![CDATA[(*language & colors for visu*)
+PROGRAM P_HmiControl
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//zwijanie ruchomego menu po przelaczeniu na inne okno
+IF NOT GVL_HMI.bMenu THEN
+	GVL_HMI.bMain1:=FALSE;
+	GVL_HMI.bMain2:=FALSE;
+END_IF
+
+IF GVL_HMI.bMain1 THEN
+	GVL_HMI.udiFOntColor1:=16#FF404040;
+ELSE 
+	GVL_HMI.udiFOntColor1:=16#FFE5E5E5;
+END_IF
+
+IF GVL_HMI.bMain2 THEN
+	GVL_HMI.udiFOntColor2:=16#FF404040;
+ELSE 
+	GVL_HMI.udiFOntColor2:=16#FFE5E5E5;
+END_IF
+
+IF GVL_HMI.iLang=0 THEN
+	VisuElemsWinControls.CURRENTLANGUAGE:='EN';
+ELSIF GVL_HMI.iLang=1 THEN
+	VisuElemsWinControls.CURRENTLANGUAGE:='PL';
+END_IF
+
+
+
+
+
+
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_HmiControl">
+      <LineId Id="108" Count="24" />
+      <LineId Id="83" Count="6" />
+      <LineId Id="45" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

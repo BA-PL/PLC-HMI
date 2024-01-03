@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_CloseTcHmiExe" Id="{ac59d580-afdb-42ca-8fbc-251b8ddc510f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_CloseTcHmiExe
+(*program for closing the visualization (terminates Tc3PlcHMi.exe process), 
+ to terminate process, set bKillProcess var to TRUE*)
+VAR
+	bKillProcess							: BOOL;
+	ntKillProcess							: NT_StartProcess;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ntKillProcess(
+	NETID:='' ,
+	PATHSTR:='C:\WINDOWS\system32\taskkill.exe' ,
+	DIRNAME:='' , 
+	COMNDLINE:='/t /f /IM Tc3PlcHmi.exe' , 
+	START:= bKillProcess,
+	ERRID=> );
+bKillProcess := FALSE;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_CloseTcHmiExe">
+      <LineId Id="3" Count="6" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+  <POU Name="F_RESET_Event" Id="{1ad57179-0d76-4c36-bd42-d55d18672361}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_RESET_Event : BOOL
+VAR_INPUT
+	dwID									: DWORD;
+	dtActTime								: DT;
+END_VAR
+VAR
+	i										: DINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Znajdz i wstaw date zakonczenia
+FOR i := 1 TO GVL_EHS.diNoOfEvents DO
+	IF 	GVL_EHSP.arrEvent[i].dwID = dwID THEN
+		GVL_EHSP.arrEvent[i].dtDateEnd		:= dtActTime;
+		EXIT;
+	END_IF
+END_FOR]]></ST>
+    </Implementation>
+    <LineIds Name="F_RESET_Event">
+      <LineId Id="14" Count="0" />
+      <LineId Id="32" Count="1" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

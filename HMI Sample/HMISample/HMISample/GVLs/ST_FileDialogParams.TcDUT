@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.9">
+  <DUT Name="ST_FileDialogParams" Id="{e8834879-be10-4256-a6da-1be357d434da}">
+    <Declaration><![CDATA[TYPE ST_FileDialogParams :
+STRUCT
+	sDirectory 								: STRING(255);
+	sFilter 								: STRING;
+	sFileIn 								: STRING;
+	sTitle 									: STRING;
+	nRowCount								: INT;
+	bBrowseDirectory						: BOOL;
+	bTouch		 							: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

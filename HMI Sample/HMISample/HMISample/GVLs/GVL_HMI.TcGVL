@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <GVL Name="GVL_HMI" Id="{401e5b96-a33f-4598-8884-db563207a053}">
+    <Declaration><![CDATA[  
+VAR_GLOBAL
+	//numer strony
+	iFrameNumber							: INT;
+	//manu boczne
+	bMain1									: BOOL;
+	bMain2									: BOOL;
+	udiFOntColor1							: UDINT;
+	udiFOntColor2							: UDINT;
+	bMenu									: BOOL;
+	//alarmy
+	arrEvents 						        : ARRAY [1..100] OF STRING;
+	bReset									: BOOL;
+	//test alarmów
+	bAlarm									: BOOL;
+	bWarning								: BOOL;
+	bMessage								: BOOL;
+	//jezyki
+	iLang									: INT;
+	//File dialog
+	stFileDialogParams						: ST_FileDialogParams;
+	bFileDialogOpen 						: BOOL := FALSE;
+	//header
+	wButton									: WORD; 				(* 	.0 - Menu,
+																	.1 - Home,
+																	.2 - Alarms,
+																	.3 - Info,
+																	.4 - Users,
+																	.5 - Settings *)		
+	wDeviceInfo								: WORD;		
+								
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+  <TextList Name="TL_Lang" Id="{97a347aa-12ba-434c-b88f-18e1bc16df89}">
+    <XmlArchive>
+      <Data>
+        <o xml:space="preserve" t="TextListObject">
+          <v n="UniqueIdGenerator">"0"</v>
+          <l n="TextList" t="ArrayList" cet="TextListRow">
+            <o>
+              <v n="TextID">"0"</v>
+              <v n="TextDefault">"English"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>English</v>
+                <v>English</v>
+                <v>Angielski</v>
+                <v>Angielski</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">"1"</v>
+              <v n="TextDefault">"Polish"</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v>Polish</v>
+                <v>Polish</v>
+                <v>Polski</v>
+                <v>Polski</v>
+              </l>
+            </o>
+            <o>
+              <v n="TextID">""</v>
+              <v n="TextDefault">""</v>
+              <l n="LanguageTexts" t="ArrayList" cet="String">
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+              </l>
+            </o>
+          </l>
+          <l n="Languages" t="ArrayList" cet="String">
+            <v>EN\</v>
+            <v>EN</v>
+            <v>PL</v>
+            <v>PL\</v>
+          </l>
+          <v n="GuidInit">{b78792d6-af81-4068-b5b0-e103c85e7af4}</v>
+          <v n="GuidReInit">{21970f3e-38a3-4415-a61f-d040c029fc28}</v>
+          <v n="GuidExitX">{52a6982c-f09c-4304-99e0-3adfb770e7bb}</v>
+        </o>
+      </Data>
+      <TypeList>
+        <Type n="ArrayList">System.Collections.ArrayList</Type>
+        <Type n="Guid">System.Guid</Type>
+        <Type n="String">System.String</Type>
+        <Type n="TextListObject">{2bef0454-1bd3-412a-ac2c-af0f31dbc40f}</Type>
+        <Type n="TextListRow">{53da1be7-ad25-47c3-b0e8-e26286dad2e0}</Type>
+      </TypeList>
+    </XmlArchive>
+  </TextList>
+</TcPlcObject>

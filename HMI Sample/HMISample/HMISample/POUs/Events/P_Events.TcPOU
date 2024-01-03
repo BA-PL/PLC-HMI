@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="P_Events" Id="{3f9e00f1-4ce6-45f9-888c-1e9f9363e906}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									23.05.2017
+//	Program obslugujacy proste alarmy historyczne.
+//	W opcjach wizualizacji trzeba wybrac use uniceode strings i use current visu variable
+// 	v1.0	|| TC v 3.1.4020.32		|| - pierwsza wersja
+//==================================================================================================
+PROGRAM P_Events
+VAR
+	fbLocalSystemTime						: FB_LocalSystemTime;
+	bEventTableSizeError					: BOOL;					// Niewlasciwy rozmiar tablicy zdarzen - sprawdz GVL_EHS.diNoOfEvents
+	bEventDefinitionSizeError				: BOOL;					// Niewlasciwy rozmiar tablicy zdarzen - sprawdz GVL_EHS.diEventsDefinition
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLocalSystemTime(bEnable:= TRUE, systemTime=> GVL_EHS.stActTime);
+GVL_EHS.dtActTime 							:= SYSTEMTIME_TO_DT(GVL_EHS.stActTime);
+
+P_EventsDefinition ();
+
+bEventDefinitionSizeError 					:= GVL_EHS.diEventsDefinition < 5 OR GVL_EHS.diEventsDefinition > 1000;
+bEventTableSizeError 						:= GVL_EHS.diNoOfEvents < 5 OR GVL_EHS.diNoOfEvents > 1000;
+
+IF NOT bEventDefinitionSizeError AND NOT bEventTableSizeError THEN
+	IF fbLocalSystemTime.bValid THEN
+		P_EventsHandling();
+	END_IF
+	// Visu i filtry
+	P_EventsVisu();	
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Events">
+      <LineId Id="8" Count="2" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="41" Count="2" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

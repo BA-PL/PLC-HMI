@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_FileDialog" Id="{f070ba40-c611-4c81-984d-b38cc80f04b9}" SpecialFunc="None">
+    <Declaration><![CDATA[(*program for setting parameters for FileOpenSae visualization dialog*)
+PROGRAM P_FileDialog
+VAR
+	fbFileList                              : Visu_FbFileListProvider; 
+	sSelectedDirectory						: STRING;
+	sSelectedFileName						: STRING;
+	iCount									: INT;
+	bOpen 									: BOOL;
+	sDir									: STRING(255):='C:\';
+	bFile									: BOOL:=TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bFile OR bOpen THEN
+	fbFileList.Initialize(
+                        stDirectory:= sDir, 
+                        stFilter:='Text Files(*.txt)|*.txt' , 
+                        stFileIn:='', 
+                        stTitle:= 'Dialog file open', 
+                        iRowCount:=10 , 
+                        bBrowseDirectory:= TRUE, 
+                        bTouch:=FALSE ); 
+	bFile:=FALSE;
+END_IF
+					
+ 
+sSelectedDirectory:=fbFileList.GetSelectedDirectory();
+sSelectedFileName:=fbFileList.GetSelectedFileName();
+iCount:=fbFileList.Count; 
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_FileDialog">
+      <LineId Id="113" Count="14" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="44" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

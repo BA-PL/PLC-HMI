@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_Table" Id="{f093d265-11f0-428e-92c7-3db449ab9829}" SpecialFunc="None">
+    <Declaration><![CDATA[(*program for displaying data in Histogram visualization element*)
+PROGRAM P_Table
+VAR
+	arrTable								: ARRAY [1..10,1..10] OF INT;
+	i										: INT;
+	j										: INT;
+	a										: INT;
+	bInit									: BOOL:=TRUE;
+	iValue									: INT;
+	iColumn									: INT:=1;
+	iLine									: INT:=1;
+	iSetValue								: INT;
+	bSetNewValue							: BOOL;
+	
+	arrHistogram							: ARRAY [1..20] OF INT := [1, 2, 20, 15, 10, 6, 7, 8, 11, 10, 11, 12, 3(5), 6, 10, 18, 19, 20];	
+	i1										: INT;
+	iTemp									: INT;
+	bRotate									: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[i:=0;
+j:=0;
+a:=1;
+IF bInit THEN
+	FOR i:=1 TO 10 DO
+		FOR j:=1 TO 10 DO
+			arrTable[i,j]:=a;
+			a:=a+1;
+		 END_FOR
+	END_FOR
+	bInit:=FALSE;
+END_IF
+iValue:=arrTable[iColumn,iLine];
+IF bSetNewValue THEN
+	arrTable[iColumn,iLine]:=iSetValue;
+END_IF
+
+
+IF bRotate THEN
+	iTemp:=arrHistogram[1];
+	FOR i1:=1 TO 19 DO
+		arrHistogram[i1]:=arrHistogram[i1+1];
+	END_FOR
+	arrHistogram[20]:=iTemp;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Table">
+      <LineId Id="13" Count="11" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="93" Count="0" />
+      <LineId Id="95" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="99" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="P_UserControl" Id="{5feeebc7-1dea-455a-bfab-114d48e8ea6f}" SpecialFunc="None">
+    <Declaration><![CDATA[(*program for controlling visu users from plc code*)
+PROGRAM P_UserControl
+VAR
+	(*variables for tracking autologout time*)
+	stTime 								: OTSTRUCT;
+	sMin								: STRING;
+	sSec								: STRING;
+	sTime								: STRING;
+	(*variables for listing existing users*)
+	fbUserMng   						: VisuUserManagement.VisuUserMgmt;
+   	stRet      							: VisuUserManagement.VUM_ReturnValues;
+   	udiNumberOfUsers   					: UDINT;
+   	dwUserDB         					: DWORD;
+   	bUpdateUserList   					: BOOL;
+   	aUserList         					: ARRAY[0..5] OF VisuUserManagement.VUM_User;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF VisuElems.CurrentUseAutoLogoutTime THEN
+	stTime 	:= TIME_TO_OTSTRUCT(VisuElems.CurrentRemainingAutoLogoutTime);
+	sMin 	:= DWORD_TO_STRING(stTime.wMinute);
+	sSec 	:= DWORD_TO_STRING(stTime.wSecond);
+	sTime 	:= CONCAT(sMin, ':');
+	sTime 	:= CONCAT(sTime, sSec);
+ELSE
+	sTime 	:= '';
+END_IF
+
+IF bUpdateUserList THEN
+	bUpdateUserList:=FALSE;
+   	dwUserDB := fbUserMng.GetUserDBAsCopy();
+   	udiNumberOfUsers := fbUserMng.GetUserCount(dwUserDB);
+
+ 	stRet := fbUserMng.GetUsers(
+                 dwUserDB:= dwUserDB, 
+                 udiStartIndex:= 0, 
+                 udiEndIndex:= udiNumberOfUsers-1, 
+                 pArr:=  ADR(aUserList),
+                 udiArrSize:= udiNumberOfUsers);
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_UserControl">
+      <LineId Id="13" Count="8" />
+      <LineId Id="38" Count="11" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
