@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.0">
+  <POU Name="CloseMessageDialog" Id="{62eea0ff-3a65-4a21-bedc-c0e847d67938}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION CloseMessageDialog : BOOL
+VAR_INPUT
+	//pClientData : POINTER TO VisuElems.VisuStructClientData;
+END_VAR
+VAR
+	iDialogManager2 : VisuElems.IDialogManager2 := 0;
+	pClientData 	: POINTER TO VisuElems.VisuStructClientData;
+	nIteratorSave 	: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+nIteratorSave := VisuElems.VisuElemBase.Visu_Globals.g_ClientManager.SaveIteration(); 
+VisuElems.VisuElemBase.Visu_Globals.g_ClientManager.BeginIteration();
+GVL.iDialogManager := VisuElems.VisuElemBase.g_VisuManager.GetDialogManager();
+pClientData := VisuElems.VisuElemBase.Visu_Globals.g_ClientManager.GetNextClient();
+
+// Cloase Dialog on all Clients
+IF pClientData <> 0 THEN
+	GVL.iMessageDialog := GVL.iDialogManager.GetDialog('DialogTest'); // dialog to be handled is specified
+	IF GVL.iMessageDialog <> 0 THEN
+		IF (iDialogManager2 = 0) THEN
+			__QUERYINTERFACE(VisuElems.g_VisuManager.GetDialogManager(), iDialogManager2);
+		END_IF
+		GVL.result := GVL.iMessageDialog.GetResult();
+		IF (iDialogManager2 <> 0) THEN
+			iDialogManager2.CloseDialog2(GVL.iMessageDialog, pClientData, VisuElems.Visu_InputFlags.GlobalOpenCloseDialog);
+		ELSE
+			GVL.iDialogManager.CloseDialog(GVL.iMessageDialog, pClientData);	// Closes The Dialog on all "pClientData"	
+		END_IF
+	END_IF
+END_IF
+
+VisuElems.VisuElemBase.Visu_Globals.g_ClientManager.RestoreIteration(nIteratorSave);]]></ST>
+    </Implementation>
+    <LineIds Name="CloseMessageDialog">
+      <LineId Id="18" Count="2" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="24" Count="8" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="33" Count="8" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

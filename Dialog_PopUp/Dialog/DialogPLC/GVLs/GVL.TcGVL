@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <GVL Name="GVL" Id="{4251d41d-2676-4c2c-82d6-41ed690b4c45}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	sTitle : STRING := 'Message ...';
+	result : VisuElems.Visu_DialogResult;
+	iDialogManager : VisuElems.IDialogManager;
+	iMessageDialog : VisuElems.IVisualisationDialog;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
