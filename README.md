@@ -12,9 +12,7 @@ Lista projektów:
 - HMISample - przykładowy szablon wizualizacji z nawigacją i najczęściej używanymi elementami wizualizacji
 		(m.in Histogram jako wykres, FileOpenSave dialog, użytkownicy, zmiana języka)
 - RecipeManagementSample - przykład obsługi receptur zaówno z poziomu kodu PLC jak i wizualizacji
-- UserMangExt - przykład zwierający dodatkowe funckcje dla użytkowników wizualizacji
-		(m.in logwanie z poziomu kodu PLC, własne okienko logowania)
-- UsersWithExternalDB - obsługa użytkowników z zewnętrzną bazą danych
+
 
 Dodatkowo:
 - TC3_PLC_HMI_BASE  - instrukcja "pierwsze kroki" z wizualiacją PLC HMI
